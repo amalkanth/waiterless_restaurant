@@ -1,5 +1,13 @@
 <?php
 class Admin extends  CI_Controller{
+	public function home()
+	{
+		$this->load->view('templates/adminheader');
+	   $this->load->view('admin/adminhome');
+	   $this->load->view('templates/footer');
+		
+	}
+	
 	public function billing()
 	{ $this->load->view('templates/adminheader');
 	   $this->load->view('admin/billing');

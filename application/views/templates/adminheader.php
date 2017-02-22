@@ -7,7 +7,7 @@
 <nav class="navbar navbar-default">
  <div class="container-fluid">
  <div class="navbar-header">
-   <a class="navbar-brand" href="<?php echo base_url(); ?>">HOTEL NAME</a>
+   <a class="navbar-brand" href="<?php echo base_url();?>admin/home">HOTEL NAME</a>
    
  </div>
  <!-- MENU ITEMS -->
@@ -20,7 +20,7 @@
  </div>
  </div>
  </nav>
- </head>
+ 
 <style>
 .navbar{
 padding-left:150px
@@ -174,12 +174,19 @@ body {
 padding-left:310px;
 padding-right:600px;
 }
-
+body{
+ background-image: url('<?=base_url()?>/image/adminbc.jpg');
+    
+    background-size:cover;
+     background-repeat: no-repeat;
+    background-position: center;
+    text-align:center;
+}
 </style>
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
 <div class="nav-side-menu">
-    <div class="brand">HOTELNAME</div>
+    <div class="brand"><a href="<?php echo base_url();?>admin/home">HOTELNAME</div>
    <!--- <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>------>
   
         <div class="menu-list">
@@ -213,3 +220,4 @@ padding-right:600px;
                 </ul>
      </div>
 </div>
+</head>

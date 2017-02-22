@@ -20,6 +20,15 @@
  </div>
  </div>
  </nav>
+<style>
+ 
 
+body{
+ background-image: url('../image/restaurant.jpg');
+    background-size:cover;
+     background-repeat: no-repeat;
+    background-position: center;
+}
+</style>
  </head>
   

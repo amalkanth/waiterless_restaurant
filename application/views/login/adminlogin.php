@@ -1,18 +1,18 @@
 
 <head>
-<title>admin login</title>
+
 <style>
- body{
- background-image: url('image/chef.jpg');
+ 
+
+body{
+ background-image: url('../image/restaurant.jpg');
     background-size:cover;
      background-repeat: no-repeat;
     background-position: center;
 }
- 
- </style>
+</style>
 </head>
 <body>
-
 <h1>ADMIN LOGIN</h1>
 <div id="container">
 <?php echo form_open('login/adminvalidation'); ?>
