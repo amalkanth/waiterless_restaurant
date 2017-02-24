@@ -7,7 +7,7 @@
 <nav class="navbar navbar-default">
  <div class="container-fluid">
  <div class="navbar-header">
-   <a class="navbar-brand" href="<?php echo base_url();?>admin/home">HOTEL NAME</a>
+   <a class="navbar-brand" href="<?php echo base_url();?>chef/home">HOTEL NAME</a>
    
  </div>
  <!-- MENU ITEMS -->

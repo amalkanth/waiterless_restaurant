@@ -11,9 +11,9 @@
 
 <?php echo form_label('TABLENO :'); ?>
 <?php echo form_input(array('id' => 'table_no', 'name' => 'table_no')); ?>
-<?php echo form_label('NO OF SEATS:'); ?>
-<?php echo form_input(array('id' => 'no_of_seats', 'name' => 'no_of_seats')); ?>
-<?php echo form_submit(array('id' => 'submit', 'value' => 'SUBMIT')); ?>
+
+
+<?php echo form_submit(array('id' => 'submit', 'value' => 'SET')); ?>
 <?php echo form_close(); ?>
 </div>
 </body>

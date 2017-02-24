@@ -1,12 +1,14 @@
-
-
+<!DOCTYPE html>
+<html>
+<head>
+<title>tablelogin</title>
+</head>
 <body>
-<h1>ADMIN LOGIN</h1>
 <div id="container">
+<h1>invalid credentials</h1>
+<?php echo form_open('login/tablevalidation'); ?>
 
-<?php echo form_open('login/adminvalidation'); ?>
-<?php  echo validation_errors();?>
-<?php echo form_label('USERNAME :'); ?>
+<?php echo form_label('USERNAME:'); ?>
 <?php echo form_input(array('id' => 'username', 'name' => 'username')); ?>
 <?php echo form_label('PASSWORD:'); ?>
 <?php echo form_password(array('id' => 'password', 'name' => 'password')); ?>
@@ -14,4 +16,5 @@
 <?php echo form_close(); ?>
 </div>
 </body>
+</html>
 

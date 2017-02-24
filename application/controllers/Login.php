@@ -24,14 +24,70 @@ class Login extends  CI_Controller{
 	
 	
 	public function  adminvalidation(){
+		$username=$this->input->post('username');
+	    $password=$this->input->post('password');
+	    
+	    $this->form_validation->set_rules('username','username','trim|required|xss_clean');
+	$this->form_validation->set_rules('password','password','trim|required|xss_clean');
+	if ($this->form_validation->run()== FALSE)
+{
+	$this->load->view('templates/header');
+		$this->load->view('login/adminlogin');
+		$this->load->view('templates/footer');
+		
+}
+else {
+	
+	$query=$this->Login_model->adminvalidation($username,$password);
+	if($query==1)//valid credentials
+	{
+
 		$this->load->view('templates/adminheader');
 		$this->load->view('admin/adminhome');
 		$this->load->view('templates/footer');
+    }
+    
+  if($query!=1)//invalid credentials
+{
+	$this->load->view('templates/header');
+		$this->load->view('login/adminloginerror');
+		$this->load->view('templates/footer');
+		
+}
+}
 	}
    public function  tablevalidation(){
-   	$this->load->view('templates/header');
+   $username=$this->input->post('username');
+	    $password=$this->input->post('password');
+	    
+	    $this->form_validation->set_rules('username','username','trim|required|xss_clean');
+	$this->form_validation->set_rules('password','password','trim|required|xss_clean');
+	if ($this->form_validation->run()== FALSE)
+{
+	$this->load->view('templates/header');
+		$this->load->view('login/adminlogin');
+		$this->load->view('templates/footer');
+		
+}
+else {
+	
+	$query=$this->Login_model->adminvalidation($username,$password);
+	if($query==1)//valid credentials
+	{
+
+		$this->load->view('templates/header');
 		$this->load->view('table/tablehome');
 		$this->load->view('templates/footer');
+    }
+    
+  if($query!=1)//invalid credentials
+{
+	$this->load->view('templates/header');
+		$this->load->view('login/tableloginerror');
+		$this->load->view('templates/footer');
+		
+}
+}
 	}
   public function  chefvalidation(){
   	$this->load->view('templates/chefheader');

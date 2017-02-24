@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>adminlogin</title>
+<title>cheflogin</title>
 </head>
 <body>
 <div id="container">
-<h1>ADMIN LOGIN</h1>
+<h1>CHEF LOGIN</h1>
 <?php echo form_open('login/chefvalidation'); ?>
 
 <?php echo form_label('USERNAME :'); ?>
