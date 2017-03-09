@@ -1,6 +1,3 @@
-
-
-
 <head>
 <style>
 .bdy{
@@ -13,18 +10,24 @@ padding-left: 270px;
 </head>
 
 
-<div class="bdy">
 
+
+
+<div class="bdy">
+<div align="right" >
+<a href="../admin/removecategory" class="btn btn-primary ">REMOVE CATEGORY</a> </div>
 <?php 
 echo $title;
+
 echo "<br><br>";
 
 ?>
 
-
 <form action="../admin/addcategoryvalidation" method="post">
   <label for="cat_name">category name:</label>
-  <input type="text" name="cat_name" id="cat_name" /><br><br>
+  <input type="text" name="cat_name" id="cat_name" />
+
+    <br><br>
   <input type="submit" name="submit" id="submit" value="ADD" />
 </form>
 </div>

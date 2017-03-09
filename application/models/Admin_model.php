@@ -35,7 +35,29 @@
      
   	 }
   	 
-  	 
-  	 
+   public function addsubcategory($form)
+  	 {
+  	 	
+       $sql=$this->db->insert_string('tbl_sub_category',$form);
+  		$query=$this->db->query($sql);
+  		if($query == TRUE){
+  			return TRUE;
+  		}
+  	
+  		else {
+  			
+  			return FALSE;
+  		}
+  	
+  	 }
+    public function removecategory($id)
+  	 {
+  	 	
+      $query = $this->db->query("DELETE FROM tbl_main_category
+WHERE cat_id=$id");
+
+      
+  	
+  	 }
   	 
   }

@@ -35,9 +35,9 @@ class Admin extends  CI_Controller{
   $this->load->view('templates/footer');
  }
  public function additem()
- {
+ {$data['name']=$this->Admin_model->getcategory();
  	$this->load->view('templates/adminheader');
-   $this->load->view('admin/additem');
+   $this->load->view('admin/additem',$data);
   $this->load->view('templates/footer');
  }
  public function additemvalidation()
@@ -73,18 +73,57 @@ public function addcategory()
  	
  	 
    $data['name']=$this->Admin_model->getcategory();
-                
-                
-                
+    $data['title']='';
+   if($data['name'])
+   {            
  	$this->load->view('templates/adminheader');
    $this->load->view('admin/addsubcategory',$data);
   $this->load->view('templates/footer');
- }
+   }
+   }
  
  public  function  addsubcategoryvalidation()
  {
+  $form=array(
+    'sub_id'=>NULL,
+    'cat_id' =>$this->input->post('cat_id'),
+	'sub_name'  =>$this->input->post('subcat_name'));
+ 	
+ 	 $query=$this->Admin_model->addsubcategory($form);
+	if($query==1)//valid credentials
+	{$data['name']=$this->Admin_model->getcategory();
+      $data['title']="subcategory added succesfully";
+		$this->load->view('templates/adminheader');
+		$this->load->view('admin/addsubcategory',$data);
+		$this->load->view('templates/footer');
+    }
  }
  
+public function removecategory()
+
+ { $data['name']=$this->Admin_model->getcategory();
+ 
+ 	 $data['title']="";
+ 	$this->load->view('templates/adminheader');
+   $this->load->view('admin/removecategory',$data);
+  $this->load->view('templates/footer');
+ }
+public  function  removecategoryvalidation()
+ {
+  
+    
+    $cat_id=$this->input->post('cat_id');
+	
+ 	
+ 	 $query=$this->Admin_model->removecategory($cat_id);
+	if($query==1)//valid 
+	{
+      $data['title']="category removed succesfully";//db error foreign key
+		$this->load->view('templates/adminheader');
+		$this->load->view('admin/removecategory',$data);
+		$this->load->view('templates/footer');
+    }
+ }
  }
  
  

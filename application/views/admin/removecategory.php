@@ -52,16 +52,14 @@ if(isset($name))
   </p>
 </div>
 
-<form action="../admin/addsubcategoryvalidation" method="post">
+<form action="../admin/removecategoryvalidation" method="post">
   <p>
     <label for="cat_name">subcategory name:</label>
   </p>
   <p>
-    <input type="text" name="subcat_name" id="subcat_name" />
-    <br>
-    <br>
+    
     <input type="hidden" name="cat_id" value=<?php echo $id; ?> />
-    <input type="submit" name="submit" id="submit" value="ADD" />
+    <input type="submit" name="submit" id="submit" value="REMOVE" />
   </p>
 </form>
 </div>
