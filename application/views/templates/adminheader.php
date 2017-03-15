@@ -40,12 +40,12 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="#" class="btn btn-d
 				
 					
                     <li>
-                        <a class="active-menu"  href="../admin/menu"><i class="fa fa-dashboard fa-3x"></i>Menu</a>
+                        <a class="active-menu"  href="../admin/menu"><i class="fa fa-cutlery fa-3x"></i>Menu</a>
                     </li>
                      <li>
-                        <a  href="ui.html"><i class="fa fa-desktop fa-3x"></i>Customer details</a>
+                        <a  href="ui.html"><i class="fa fa-group fa-3x"></i>Customer details</a>
                     </li>
-                    <li><a   href="chart.html"><i class="fa fa-bar-chart-o fa-3x"></i> Billing</a>
+                    <li><a   href="chart.html"><i class="fa fa-money fa-3x"></i> Billing</a>
 </li>
 						   <li  ><a   href="chart.html"><i class="fa fa-bar-chart-o fa-3x"></i>........</a>
 </li>	

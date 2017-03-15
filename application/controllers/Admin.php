@@ -40,10 +40,52 @@ class Admin extends  CI_Controller{
    $this->load->view('admin/additem',$data);
   $this->load->view('templates/footer');
  }
+ 
  public function additemvalidation()
  {
+   $cat_id=$this->input->post('cat_id');
+ 	$sub_id=$this->input->post('sub_id');
+ 	$item_name=$this->input->post('item_name');
+   $price=$this->input->post('price');
+   $description=$this->input->post('description'); 
+
+  $ck= $this->Admin_model->additem($sub_id,$item_name,$price,$description);
+ if($ck==TRUE)
+ {
+ 		$this->load->view('templates/adminheader');
+   $this->load->view('admin/addimage');
+  $this->load->view('templates/footer');
+     
+ }
+ 
+ 
+ }
+ 
+ 
+ 
+ public function addimagevalidation()//view to add image single and later
+ {
+ 	
+ 	
+ 	
+ 	
+ 	$url = $this->do_upload();
+		$title = $_POST["item_name"];
+		$this->Admin_model->saveimage($item_id, $url);
+	
  	
  }
+private function do_upload()
+	{
+		$type = explode('.', $_FILES["pic"]["name"]);
+		$type = strtolower($type[count($type)-1]);
+		$url = "./images/menu".uniqid(rand()).'.'.$type;
+		if(in_array($type, array("jpg", "jpeg", "gif", "png")))
+			if(is_uploaded_file($_FILES["pic"]["tmp_name"]))
+				if(move_uploaded_file($_FILES["pic"]["tmp_name"],$url))
+					return $url;
+		return "";
+	}
  
  
 public function addcategory()
@@ -123,6 +165,12 @@ public  function  removecategoryvalidation()
 		$this->load->view('admin/removecategory',$data);
 		$this->load->view('templates/footer');
     }
+ }
+public function removeitem()
+ {$data['name']=$this->Admin_model->getcategory();
+ 	$this->load->view('templates/adminheader');
+   $this->load->view('admin/removeitem',$data);
+  $this->load->view('templates/footer');
  }
  }
  
