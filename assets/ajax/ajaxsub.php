@@ -1,8 +1,8 @@
-
+<?php echo"hhhh";?>
 <option value="">-------select--------</option>
 <?php
 $con=mysqli_connect("localhost","root","");
-mysqli_select_db($con,"waiterless restaurant");
+mysqli_select_db($con,"waiterless_restaurant");
 	if(isset($_GET["cat_id"]))
 	{ 
 		$stid=$_GET["cat_id"];
@@ -12,8 +12,12 @@ mysqli_select_db($con,"waiterless restaurant");
 					$sid=$data["sub_id"];
 					$sname=$data["sub_name"];
 				?>
+				
                 <option value="<?php echo $did; ?>"><?php echo $sname; ?></option>
+            
                 <?php
 				}
 	}
+
+	
 				?>

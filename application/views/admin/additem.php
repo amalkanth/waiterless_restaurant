@@ -24,15 +24,17 @@ left-padding:390px;
 <script type="text/javascript" language="javascript">
 function loaddist(cat_id)
 {
+	alert(cat_id);
 	var xmlhttp=new XMLHttpRequest();
 	xmlhttp.onreadystatechange=function()
 	{
 		if(xmlhttp.readyState==4)
 		{
+			alert("jj");
 			document.getElementById("subcategory").innerHTML=xmlhttp.responseText;
 		}
 	}
-	xmlhttp.open("GET","views/ajax/ajaxsub.php?cat_id="+cat_id,true);
+	xmlhttp.open("GET","../assets/ajax/ajaxsub.php?cat_id="+cat_id,true);
 	xmlhttp.send();
 }
 </script>
@@ -52,7 +54,7 @@ $sty= array(
 <div class="dropdown" >
   <p class="dropdown11">&nbsp;</p>
   <p class="dropdown11"> 
-    <select name="category" id="category">
+    <select name="category" id="category" onchange="loaddist(this.value)">
       <option>-------select category---</option>
       <?php 
 if(isset($name))
@@ -60,7 +62,7 @@ if(isset($name))
 	foreach($name as $row)
 	{
 		?>
-      <option value=<?php $row["cat_id"]; ?> id="cat_id" name="cat_id">
+      <option value="<?php echo $row["cat_id"]; ?>" id="cat_id" name="cat_id">
         <?php  echo $row["cat_name"];$id=$row["cat_id"]; ?>
         
         </option>
@@ -70,31 +72,18 @@ if(isset($name))
 	
 }
 ?>
-    </select>
-  </p>
-     <select name="subcategory" id="subcategory">
-      <option>-------select subcategory---</option>
-      <?php 
-if(isset($name))
-{
-	foreach($name as $row)
-	{
-		?>
-      <option value=<?php $row["cat_id"]; ?> id="sub_id" name="sub_id">
-        <?php  echo $row["sub_name"];$id=$row["sub_id"]; ?>
-        
-        </option>
-      <?php 	
-		
-	}
-	
-}
-?>
-    </select>
   
+</select>  
 </div>
+
+<select name="subcategory" id="subcategory">
+	<option value="">------select-----</option>
+</select>
+
+
+
   
-  <br><br>
+  <br><br><br><br>
 <label for="price"></label>
  price(INR):<input type="text" name="price" id="price" />  
   
