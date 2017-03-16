@@ -55,6 +55,7 @@
 			  <p class="dropdown11">&nbsp;</p>
 			  <p class="dropdown11"> 
 			  <select name="category" id="category" onchange="loaddist(this.value)">
+			  category:
 			  <option>-------select category---</option>
 			  <?php 
 				if(isset($name))
@@ -74,7 +75,8 @@
 		</div>
 
 		<select name="subcategory" id="subcategory">
-			<option value="">------select-----</option>
+		
+			<option value="">------select subcategory-----</option>
 		</select>
       
 
@@ -92,7 +94,7 @@
 		
 		<br><br>
 		
-		 <label for="item name"></label>
+		 <?php echo form_label('item name:');?>
 		 <input type="text" name="item_name" id="item_id" />
 
 		<input type="submit" name="submit" id="submit" value="Submit" />

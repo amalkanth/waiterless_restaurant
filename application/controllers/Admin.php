@@ -50,14 +50,14 @@ class Admin extends  CI_Controller{
    $description=$this->input->post('description'); 
    
 
-  $ck= $this->Admin_model->additem($sub_id,$item_name,$price,$description);
-/* if($ck==TRUE)
- {
+  $data['name']= $this->Admin_model->additem($sub_id,$item_name,$price,$description);
+ if($data['name'])
+ { 
  		$this->load->view('templates/adminheader');
-   $this->load->view('admin/addimage');
-  $this->load->view('templates/footer');
+   $this->load->view('admin/addimage',$data);
+  $this->load->view('templates/footer'); 
      
- }*/
+ }
  
  
  }
@@ -66,12 +66,13 @@ class Admin extends  CI_Controller{
  
  public function addimagevalidation()//view to add image single and later
  {
- 	
+ 	$item_name=$this->input->post('name');
+ 	$item_id=$this->input->post('id');
  	
  	
  	
  	$url = $this->do_upload();
-		$title = $_POST["item_name"];
+		$title = $item_name;
 		$this->Admin_model->saveimage($item_id, $url);
 	
  	
@@ -80,7 +81,7 @@ private function do_upload()
 	{
 		$type = explode('.', $_FILES["pic"]["name"]);
 		$type = strtolower($type[count($type)-1]);
-		$url = "./images/menu".uniqid(rand()).'.'.$type;
+		$url = "../images/menu".uniqid(rand()).'.'.$type;
 		if(in_array($type, array("jpg", "jpeg", "gif", "png")))
 			if(is_uploaded_file($_FILES["pic"]["tmp_name"]))
 				if(move_uploaded_file($_FILES["pic"]["tmp_name"],$url))

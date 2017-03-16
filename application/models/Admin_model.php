@@ -77,7 +77,16 @@ WHERE cat_id=$id");
 	   $sql=$this->db->insert_string('tbl_item',$form);
   		$query=$this->db->query($sql);
   		if($query == TRUE){
-  			return TRUE;
+
+       $query= $this->db->query("select * from tbl_item where item_name='$item_name'");
+       $results=array();
+        foreach($query->result() as $row)
+        {
+          $results=array('item_id'=>$row->item_id,'item_name'=>$row->item_name);
+        }
+
+       
+  			return $results;
   		}
   	
   		else {
