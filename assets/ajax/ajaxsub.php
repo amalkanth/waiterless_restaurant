@@ -13,7 +13,7 @@ mysqli_select_db($con,"waiterless_restaurant");
 					$sname=$data["sub_name"];
 				?>
 				
-                <option value="<?php echo $did; ?>"><?php echo $sname; ?></option>
+                <option value="<?php echo $sid; ?>" id="<?php echo $sid; ?>"><?php echo $sname; ?></option>
             
                 <?php
 				}

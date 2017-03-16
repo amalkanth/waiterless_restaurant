@@ -43,7 +43,7 @@
 
 <body>
 	<div class="bdy">
-    <?php echo form_open("Admin/additemvalidation");  ?>
+    <?php echo form_open("admin/additemvalidation");  ?>
 		<?php 
 			$sty= array(
 			 
@@ -76,12 +76,14 @@
 		<select name="subcategory" id="subcategory">
 			<option value="">------select-----</option>
 		</select>
+      
 
 		<br><br><br>
 
 		<label for="price"></label>
 		price(INR):<input type="text" name="price" id="price" />  
-		  
+		
+
 		  
 		<br><br><br>description<br>
 		<label for="description"></label>

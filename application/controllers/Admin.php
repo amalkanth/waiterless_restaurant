@@ -44,19 +44,20 @@ class Admin extends  CI_Controller{
  public function additemvalidation()
  {
    $cat_id=$this->input->post('cat_id');
- 	$sub_id=$this->input->post('sub_id');
+ 	$sub_id=$this->input->post('subcategory');
  	$item_name=$this->input->post('item_name');
    $price=$this->input->post('price');
    $description=$this->input->post('description'); 
+   
 
   $ck= $this->Admin_model->additem($sub_id,$item_name,$price,$description);
- if($ck==TRUE)
+/* if($ck==TRUE)
  {
  		$this->load->view('templates/adminheader');
    $this->load->view('admin/addimage');
   $this->load->view('templates/footer');
      
- }
+ }*/
  
  
  }
