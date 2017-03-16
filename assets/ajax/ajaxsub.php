@@ -1,4 +1,4 @@
-<?php echo"hhhh";?>
+
 <option value="">-------select--------</option>
 <?php
 $con=mysqli_connect("localhost","root","");

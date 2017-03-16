@@ -34,7 +34,7 @@ class Admin extends  CI_Controller{
    $this->load->view('admin/menu');
   $this->load->view('templates/footer');
  }
- public function additem()
+ public function additem() //function get category name from model to name and loads additem view page
  {$data['name']=$this->Admin_model->getcategory();
  	$this->load->view('templates/adminheader');
    $this->load->view('admin/additem',$data);
