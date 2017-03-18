@@ -15,9 +15,7 @@
 ?> added ..choose an image</h3>
 
 	
-<?php echo $name['item_id']."</br>";
-echo $name['item_name'];
-?>
+
 <div id="container">
  
 <?php echo  form_open_multipart('admin/addimagevalidation')?>

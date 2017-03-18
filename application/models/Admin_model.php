@@ -61,14 +61,7 @@ WHERE cat_id=$id");
   	 }
   	 
   	 
-  	 public function saveimage($item_id, $path)
-	{
-		$this->db->set('item_id', $item_id);
-		$this->db->set('image_id', NULL);
-		$this->db->set('path', $path);
-		$this->db->insert('tbl_image');
-	}  	 
-
+  	 
 	public function additem($sub_id,$item_name,$price,$description)
 	{  
 		
@@ -110,6 +103,19 @@ WHERE cat_id=$id");
   			return $results;
   	 	
   	 	
+  	 }
+  	 public function image_path($id,$path)
+  	 {
+  	 	$data = array(
+        'image_id' => NULL,
+        'item_id' => $id,
+        'path' => $path
+);
+  	 $sql=$this->db->insert_string('tbl_image',$data);
+  		$query=$this->db->query($sql);
+  		if($query == TRUE){
+  			return TRUE;
+  		}
   	 }
   } 
   	 

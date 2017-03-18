@@ -106,6 +106,7 @@ class Admin extends  CI_Controller{
  
           // $data['thumbnail_name'] = $finfo['raw_name']. '_thumb' .$finfo['file_ext']; 
            {
+           $img=$this->Admin_model->image_path($id,$finfo['raw_name']);
            $this->load->view('templates/adminheader');
            
            $this->load->view('admin/imagesuccess',$data);
