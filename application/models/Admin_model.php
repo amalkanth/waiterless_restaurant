@@ -96,6 +96,21 @@ WHERE cat_id=$id");
  
         	 
   	 }
+  	 
+  	 public function get_details($id)
+  	 {
+  	 	 $query= $this->db->query("select * from tbl_item where item_id='$id'");
+       $results=array();
+        foreach($query->result() as $row)
+        {
+          $results=array('item_id'=>$row->item_id,'item_name'=>$row->item_name,'price'=>$row->price,'description'=>$row->description);
+        }
+
+       
+  			return $results;
+  	 	
+  	 	
+  	 }
   } 
   	 
   	 
