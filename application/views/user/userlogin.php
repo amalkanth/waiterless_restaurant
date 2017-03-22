@@ -181,7 +181,7 @@ $('.tabs').on('click', 'li a', function(e){
   </ul>
   <div id="login" class="form-action show">
     <h1>Login .</h1>
-    <form>
+    <form action =user/userhome>
       <ul>
         <li>
           <input type="text" placeholder="Username" />
