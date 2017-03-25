@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php
 class User extends  CI_Controller{
 	public function userhome()
@@ -54,3 +55,5 @@ function empty_cart(){
 }
 }
 
+=======
+>>>>>>> f11515b4f1e6f18002ae75d517fc3bbdfdb14d9f

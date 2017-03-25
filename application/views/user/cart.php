@@ -7,7 +7,7 @@ else:
  
 <?php echo form_open('user/update_cart'); ?>
 <table width="100%" cellpadding="0" cellspacing="0">
-    kkk<thead>
+    <thead>
         <tr>
             <td>Qty</td>
             <td>Item </td>
