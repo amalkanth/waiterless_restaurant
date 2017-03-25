@@ -2,7 +2,7 @@
 class User extends  CI_Controller{
 	public function userhome()
 	{
-		$this->load->view(user/userhome);
+		$this->load->view('user/userhome');
 	}
 	
 function cart()
@@ -14,4 +14,9 @@ function cart()
     
 
 }
+
+
+
+
+
 }

@@ -170,66 +170,29 @@ $('.tabs').on('click', 'li a', function(e){
 <div class="flat-form">
   <ul>
     <li>
-      <a href="#login" class="active">Login</a>
+      <a href="#" class="active">Login</a>
     </li>
     <li>
-      <a href="#register">Register</a>
+      <a href="register">Register</a>
     </li>
     <li>
-      <a href="#reset">Reset Password</a>
+      <a href="resetpassword">Reset Password</a>
     </li>
   </ul>
+  
   <div id="login" class="form-action show">
     <h1>Login .</h1>
-    <form action =user/userhome>
-      <ul>
-        <li>
-          <input type="text" placeholder="Username" />
-        </li>
-        </br></br><li>
-          <input type="password" placeholder="Password" />
-        </li>
-        </br></br><li>
-          <input type="submit" value="Login" class="button" />
-        </li>
-      </ul>
-    </form>
+    <?php echo $_SESSION['tableno']; ?>
+<div id="container">
+
+<?php echo form_open('table/userloginvalidation'); ?>
+<?php  echo validation_errors();?>
+<?php echo form_label('USERNAME :'); ?>
+<?php echo form_input(array('id' => 'username', 'name' => 'username')); ?>
+<?php echo form_label('PASSWORD:'); ?>
+<?php echo form_password(array('id' => 'password', 'name' => 'password')); ?>
+<?php echo form_submit(array('id' => 'submit', 'value' => 'LOGIN')); ?>
+<?php echo form_close(); ?>
+</div>
   </div>
-  <!--/#login.form-action-->
-  <div id="register" class="form-action hide">
-    <h1>Register</h1>
-    
-    <form>
-      <ul>
-        <li>
-          <input type="text" placeholder="Username" />
-        </li>
-        <li>
-          <input type="password" placeholder="Password" />
-        </li>
-        <li>
-          <input type="submit" value="Sign Up" class="button" />
-        </li>
-      </ul>
-    </form>
-  </div>
-  <!--/#register.form-action-->
-  <div id="reset" class="form-action hide">
-    <h1>Reset Password</h1>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, provident in accusamus possimus.</p>
-    <form>
-      <ul>
-        <li>
-          <input type="text" placeholder="Email" />
-        </li>
-        <li>
-          <input type="text" placeholder="Birthday" />
-        </li>
-        <li>
-          <input type="submit" value="Send" class="button" />
-        </li>
-      </ul>
-    </form>
-  </div>
-  <!--/#register.form-action-->
 </div>
