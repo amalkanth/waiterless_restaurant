@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 <?php
 class User extends  CI_Controller{
 	public function userhome()
@@ -15,7 +15,7 @@ function cart()
 
 }
 
-<<<<<<< HEAD
+
 function add_cart_item(){
      
      
@@ -38,15 +38,15 @@ function add_cart_item(){
 function show_cart(){
     $this->load->view('user/cart');
 }
-function update_cart(){
+function update_cart()
+{
     $this->User_model->validate_update_cart();
     redirect('user/cart');
-=======
 
 
 
 
->>>>>>> 2c0de3f0930197e1f0928a48d2bc9dd72b770c11
+
 }
 
 function empty_cart(){
@@ -54,6 +54,3 @@ function empty_cart(){
     redirect('user/cart'); // Refresh te page
 }
 }
-
-=======
->>>>>>> f11515b4f1e6f18002ae75d517fc3bbdfdb14d9f
