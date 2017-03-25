@@ -16,6 +16,18 @@ padding-left: 255px;
   <a href="../admin/addcategory" class="btn btn-primary ">ADD / REMOVE CATEGORY</a>
   <a href="../admin/addsubcategory" class="btn btn-primary ">ADD / REMOVE SUBCATEGORY</a>
  
-
+<?php
+$con=mysqli_connect("localhost","root","");
+mysqli_select_db($con,"waiterless_restaurant");
+$qu=mysqli_query($con,"select * from tbl_item group by sub_id");
+				while($data=mysqli_fetch_array($qu))
+				{
+					$item_id=$data["item_id"];
+					$item_name=$data["item_name"];
+					echo $item_id ; echo "  ";echo $item_name; echo "<br><br>";
+				}
+				?>
+				
+    
 
 </div>

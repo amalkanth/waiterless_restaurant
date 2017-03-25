@@ -2,7 +2,7 @@
 class User extends  CI_Controller{
 	public function userhome()
 	{
-		$this->load->view(user/userhome);
+		$this->load->view('user/userhome');
 	}
 	
 function cart()
@@ -14,6 +14,7 @@ function cart()
 
 }
 
+<<<<<<< HEAD
 function add_cart_item(){
      
      
@@ -39,6 +40,12 @@ function show_cart(){
 function update_cart(){
     $this->User_model->validate_update_cart();
     redirect('user/cart');
+=======
+
+
+
+
+>>>>>>> 2c0de3f0930197e1f0928a48d2bc9dd72b770c11
 }
 
 function empty_cart(){

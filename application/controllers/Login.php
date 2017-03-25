@@ -95,4 +95,51 @@ else {
 		$this->load->view('templates/footer');
 	}
 	
+
+
+public function  userloginvalidation(){
+		$username=$this->input->post('username');
+	    $password=$this->input->post('password');
+	    
+	    $this->form_validation->set_rules('username','username','trim|required|xss_clean');
+	$this->form_validation->set_rules('password','password','trim|required|xss_clean');
+	if ($this->form_validation->run()== FALSE)
+{
+	//$this->load->view('templates/header');
+		$this->load->view('user/userlogin');
+	//	$this->load->view('templates/footer');
+		
+}
+else {
+	
+	$query=$this->Login_model->uservalidation($username,$password);
+	if($query==1)//valid credentials
+	{
+
+		//$this->load->view('templates/adminheader');
+		$this->load->view('user/userhome');
+		//$this->load->view('templates/footer');
+    }
+    
+  if($query!=1)//invalid credentials
+{
+	/*$this->load->view('templates/header');
+		$this->load->view('login/adminloginerror');
+		$this->load->view('templates/footer');*/
+		
+}
+}
+	}
+
+
+
+
+
+
+
+
+
+
+
+
 }
