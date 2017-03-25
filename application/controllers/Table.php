@@ -36,7 +36,8 @@ class Table extends CI_Controller{
 	{
          $_SESSION['user_id']=$query;
 		//$this->load->view('templates/adminheader');
-		$this->load->view('user/userhome');
+		//$this->load->view('user/userhome');
+         redirect('user/cart');
 		//$this->load->view('templates/footer');
     }
     
