@@ -21,7 +21,7 @@
   	 
   	 public function getcategory()
   	 {   
-         $q="select * from tbl_main_category";
+         $q="select * from tbl_main_category ";
          $query=$this->db->query($q);
          $results=array();
          foreach($query->result() as $row)
@@ -37,8 +37,8 @@
   	 
    public function addsubcategory($form)
   	 {
-  	 	
-       $sql=$this->db->insert_string('tbl_sub_category',$form);
+       	 	
+      $sql=$this->db->insert_string('tbl_sub_category',$form);
   		$query=$this->db->query($sql);
   		if($query == TRUE){
   			return TRUE;

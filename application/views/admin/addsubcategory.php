@@ -29,8 +29,9 @@ echo $title;
 ?>
 <div class="dropdown" >
   <p class="dropdown11">&nbsp;</p>
-  <p class="dropdown11"> 
-    <select name="select">
+  <p class="dropdown11">
+  <form action="../admin/addsubcategoryvalidation" method="post"> 
+    <select name="category" id="category">
       <option>-------select category---</option>
       <?php 
 if(isset($name))
@@ -38,8 +39,8 @@ if(isset($name))
 	foreach($name as $row)
 	{
 		?>
-      <option value=<?php $row["cat_id"]; ?> id="cat_id" name="cat_id">
-        <?php  echo $row["cat_name"];$id=$row["cat_id"]; ?>
+      <option value="<?php echo $row["cat_id"]; ?>"   >
+        <?php  echo $row["cat_name"]; ?>
         
         </option>
       <?php 	
@@ -52,7 +53,7 @@ if(isset($name))
   </p>
 </div>
 
-<form action="../admin/addsubcategoryvalidation" method="post">
+
   <p>
     <label for="cat_name">subcategory name:</label>
   </p>
@@ -60,7 +61,7 @@ if(isset($name))
     <input type="text" name="subcat_name" id="subcat_name" />
     <br>
     <br>
-    <input type="hidden" name="cat_id" value=<?php echo $id; ?> />
+    
     <input type="submit" name="submit" id="submit" value="ADD" />
   </p>
 </form>
