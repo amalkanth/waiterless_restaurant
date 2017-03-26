@@ -183,7 +183,7 @@ public function addcategory()
  public function addsubcategory()
  {
  	
- 	
+ 
  	 
    $data['name']=$this->Admin_model->getcategory();
     $data['title']='';
@@ -199,7 +199,7 @@ public function addcategory()
  {
   $form=array(
     'sub_id'=>NULL,
-    'cat_id' =>$this->input->post('cat_id'),
+    'cat_id' =>$this->input->post('category'),
 	'sub_name'  =>$this->input->post('subcat_name'));
  	
  	 $query=$this->Admin_model->addsubcategory($form);
