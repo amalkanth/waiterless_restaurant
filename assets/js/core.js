@@ -8,7 +8,7 @@ $(document).ready(function() {
 		var id = $(this).find('input[name=product_id]').val();
 		var qty = $(this).find('input[name=quantity]').val();
 		var remarks = $(this).find('input[name=remarks]').val();
-		alert('ID:' + id + '\n\rQTY:' + qty);
+		
 		$.post(link + "user/add_cart_item", { product_id: id, quantity: qty, ajax: '1',remarks: remarks },
 				function(data){	
 		 			

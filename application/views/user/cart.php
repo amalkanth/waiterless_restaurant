@@ -1,19 +1,21 @@
-<?php 
+<div class="order-container">
+<?php
+ 
  //print_r($this->cart->contents());
 if(!$this->cart->contents()):
-    echo 'You don\'t have any order yet.';
+    echo 'You don\'t have any pending orders ';
 else:
 ?>
  
 <?php echo form_open('user/update_cart'); ?>
-<table width="100%" cellpadding="0" cellspacing="0">
+<table width="53%" cellpadding="0" cellspacing="0">
     <thead>
         <tr>
-            <td>Qty</td>
-            <td>Item </td>
-            <td> Price</td>
-            <td>Remarks</td>
-            <td>Sub-Total</td>
+            <td width="14%">Qty</td>
+            <td width="16%">Item </td>
+            <td width="16%"> Price</td>
+            <td width="20%">Sub-Total</td>
+            <td width="34%">status</td>
         </tr>
     </thead>
     <tbody>
@@ -28,9 +30,10 @@ else:
              
             <td><?php echo $items['name']; ?></td>
              <td>&#8377;<?php echo $this->cart->format_number($items['price']); ?></td>
-            <td><?php echo $items['remarks']; ?></td>
-          
-            <td>&#8377;<?php echo $this->cart->format_number($items['subtotal']); ?></td>
+             <td>&#8377;<?php echo $this->cart->format_number($items['subtotal']); ?></td>
+      
+         <td><?php echo $items['order_status'];?></td> 
+            
         </tr>
          
         <?php $i++; ?>
@@ -45,9 +48,10 @@ else:
     </tbody>
 </table>
  
-<p><?php echo form_submit('', 'Update your Cart'); echo anchor('user/empty_cart', 'Empty Cart', 'class="empty"');?></p>
-<p><small>TO cancel an item set quantity  to zero</small></p>
+<p><?php echo form_submit('', 'Update your Cart'); echo anchor('user/empty_cart', 'Empty Cart', 'class="empty"');?>  <a href="../user/confirmorder" class="btn btn-info ">CONFIRM ORDER</a> </p>
+<p><small>To cancel an item set quantity  to zero</small></p>
 <?php 
 echo form_close(); 
 endif;
 ?>
+</div>

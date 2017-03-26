@@ -3,8 +3,11 @@ class Table extends CI_Controller{
 	public function settable()
 	{  $tableno=$_POST['tableno'];   
         $_SESSION['tableno']=$tableno;
-
-   		$this->load->view('templates/header');
+		$_SESSION['date']=date("Y/m/d");
+	
+		$_SESSION['time']=date("H:i:s",time());
+   		
+		$this->load->view('templates/header');
 		$this->load->view('user/userlogin');
 		$this->load->view('templates/footer');
 	}
@@ -28,13 +31,14 @@ class Table extends CI_Controller{
 		$this->load->view('user/userlogin');
 		//$this->load->view('templates/footer');
 		
-}*/
+}*/$_SESSION['user_name']=$username;
 
 	
 	$query=$this->Login_model->uservalidation($username,$password);
 	if($query)//valid credentials
 	{
          $_SESSION['user_id']=$query;
+         
 		//$this->load->view('templates/adminheader');
 		//$this->load->view('user/userhome');
          redirect('user/cart');
@@ -44,7 +48,8 @@ class Table extends CI_Controller{
   	else//invalid credentials
 	{
 		$this->load->view('templates/header');
-		$this->load->view('login/adminloginerror');
+		echo "invalid credentials";
+		//$this->load->view('login/adminloginerror');
 		$this->load->view('templates/footer');
 		
 	}

@@ -39,7 +39,7 @@ function validate_add_cart_item(){
     	echo "item";
     // We have a match!
         foreach ($query->result() as $row)
-        {echo $row->price;
+        {echo $row->price;$sta="not confirmed";
             // Create an array with product information
             $data = array(
                 'id'      => $id,
@@ -48,6 +48,7 @@ function validate_add_cart_item(){
                 'price'   => $row->price,
                 'name'    => $row->item_name,
             	'remarks' =>$remarks,
+            	'order_status'=>$sta
             );
             //print_r($data);
  
@@ -65,7 +66,7 @@ function validate_add_cart_item(){
 
 // Updated the shopping cart
 function validate_update_cart(){
-     
+     error_reporting(0);
     // Get the total number of items in cart
     $total = $this->cart->total_items();
      
@@ -87,7 +88,46 @@ function validate_update_cart(){
     }
  
 }
+public function confirmorder()
+{
+$order=array('order_id'=>NULL,'table_id'=>$_SESSION['tableno'],'user_id'=>$_SESSION['user_id']
+,'order_date'=>$_SESSION['date'],'order_time'=>$_SESSION['time'],
+'order_status'=>0,
+'bill_amount'=>$this->cart->total());
+$tableno=$_SESSION['tableno'];
+$user_id=$_SESSION['user_id'];
+$date=$_SESSION['date'];
+$time=$_SESSION['time'];
+$this->db->insert('tbl_order',$order);
+ $tbl=$_SESSION['tableno'];
+$query=$this->db->query("select order_id from tbl_order where table_id='$tbl' and order_time='$time'");
+ foreach($query->result() as $row)
+ {//echo $_SESSION['time'];
+ 	$ordrid=$row->order_id;
+ 	//echo $ordrid['order_id'];
+ }
+ //echo $ordrid['order_id'];
  
+ 
+ foreach ($this->cart->contents() as $items)
+ {$qty=$items['qty'];
+  $remarks=$items['remarks'];
+  $price=$items['price'];
+  $item_id=$items['id'];
+ 	$orderitem=array('orderitem_id'=>NULL,'order_id'=>$ordrid,'item_id'=>$item_id,
+ 					'qty'=>$qty,'remarks'=>$remarks,'price'=>$price
+ 						,'discount_amount'=>0);
+ 		$orditm=$this->db->insert('tbl_order_items',$orderitem);
+ 		 }	    $this->cart->destroy();
+
+ 
+ 
+    // Cycle true all items and update them
+    
+       
 }
+
+}
+
 
   

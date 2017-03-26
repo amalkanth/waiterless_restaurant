@@ -1,3 +1,4 @@
+
 <head>
 <title>Bootstrap Example</title>
   <meta charset="utf-8">
@@ -6,7 +7,15 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <style>
+.of{
+background-image: url('image/ofr.jpg');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.order{
 
+}
 .carousel-inner > .item > img,
   .carousel-inner > .item > a > img {
       width: 70%;
@@ -32,7 +41,7 @@
   }
 
 .bdy{
-padding-left: 80px;
+padding-left: 100px;
 }
 body{
     font-family: "Lucida Sans";
@@ -84,21 +93,35 @@ ul.products{
         border: 1px solid #d3d3d3;
     }
 
+a:active {
+	font-size: 12px;
+}
 </style>
 </head>
+
 <body class="bdy">
+<div class="container-fluid">
 <nav class="navbar navbar-default">
-  <div class="container-fluid">
+  
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">WebSiteName</a>
+      <a class="navbar-brand" href="#">Hotel name</a>
     </div>
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home</a></li>
-        <li><a href="#">Page 1</a></li>
-        <li><a href="#">Page 2</a></li>
-        <li><a href="#">Page 3</a></li>
+        <li class="active"><a href="#">about</a></li>
+        <li><a href="#">contact</a></li>
+        
+        <li><a href="#">Menu</a></li>
+        
+        
       </ul>
-  </div>
+<ul  class="nav navbar-nav navbar-center">
+      <li><h4>Welcome <?php echo $_SESSION['user_name'];?></h4></li>
+      
+    </ul>  
+  <ul  class="nav navbar-nav navbar-right">
+      <li><a href="table/settable"><h4>Logout</h4></a></li>
+      
+    </ul>  </div></div>
 </nav>
 <div class="container">
   <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -123,6 +146,8 @@ ul.products{
       </div>
      </div>
      <!-- Left and right controls -->
+     
+     
      <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
       <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
       <span class="sr-only">Previous</span>
@@ -133,15 +158,24 @@ ul.products{
      </a>
     </div>
 </div>
-<div class="container">
+<div class="">
   <div class="row">
-	<div class="col-sm-3 box">
-		<h3>Name</h3><br>
-		<p>some text</p>
-	</div>
+  <div class="of">
+	<div  class="col-sm-3 box">
+		</br></br><a href="../user/confirmorder" class="btn btn-info ">YOUR OFFERS</a> </p>
+<br>
+		<p>.</p>
+	</div></div>
   </div>
 </div>
-
+<?php $data1 = array(
+      'name'        => 'remarks',
+      'id'          => 'remarks',
+      'value'       => '',
+      'rows'        => '2',
+      'cols'        => '20',
+      'style'       => 'width:50%',
+    );?>
 <ul class="products">
     <?php foreach($products as $p): ?>
     <li>
@@ -154,7 +188,7 @@ ul.products{
                 <label>Quantity</label>
                 <?php echo form_input('quantity', '1', 'maxlength="2"'); ?></br>
                 <?php echo form_label("remarks");?>
-                <?php echo form_input('remarks', '', ''); ?></br>
+                <?php echo form_textarea($data1); ?></br>
                 <?php echo form_hidden('product_id', $p['item_id']); ?>
                 <?php echo form_submit('add', 'Add to order'); ?>
             </fieldset>

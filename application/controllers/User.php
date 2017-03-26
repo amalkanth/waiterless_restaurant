@@ -53,4 +53,14 @@ function empty_cart(){
     $this->cart->destroy(); // Destroy all cart data
     redirect('user/cart'); // Refresh te page
 }
+
+
+public function confirmorder()
+{
+$qry=$this->User_model->confirmorder();	 
+
+	 redirect('user/cart');
+
+	 
+}
 }
