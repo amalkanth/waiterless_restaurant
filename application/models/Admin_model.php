@@ -117,6 +117,26 @@ WHERE cat_id=$id");
   			return TRUE;
   		}
   	 }
+ 
+
+public function offerinsert($offerform)
+
+{
+
+  $sql=$this->db->insert_string('tbl_offer',$offerform);
+      $query=$this->db->query($sql);
+      if($query == TRUE){
+        return TRUE;
+      }
+    
+      else {
+        
+        return FALSE;
+      }
+    
+}
+
+
   } 
   	 
   	 

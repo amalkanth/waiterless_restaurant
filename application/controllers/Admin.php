@@ -114,50 +114,13 @@ class Admin extends  CI_Controller{
            
            }
  
-           // You can view content of the $finfo with the code block below
- 
-           /*echo '<pre>';
- 
-           print_r($finfo);
- 
-           echo '</pre>';*/
+         
  
        }
  
     }
  
-    //Create Thumbnail function
- 
-   /* function _createThumbnail($filename)
- 
-    {
- 
-        $config['image_library']    = "gd2";      
- 
-        $config['source_image']     = "image/menu/" .$filename;      
- 
-        $config['create_thumb']     = TRUE;      
- 
-        $config['maintain_ratio']   = TRUE;      
- 
-        $config['width'] = "80";      
- 
-        $config['height'] = "80";
- 
-        $this->load->library('image_lib',$config);
- 
-        if(!$this->image_lib->resize())
- 
-        {
- 
-            echo $this->image_lib->display_errors();
- 
-        }      
- 
-    }*/
- 	
- 
-
+   
  
 public function addcategory()
  {  $data['title']="";
@@ -243,6 +206,38 @@ public function removeitem()
    $this->load->view('admin/removeitem',$data);
   $this->load->view('templates/footer');
  }
+
+public function offerset()
+{   $data['name']=$this->Admin_model->getcategory();
+    $this->load->view('templates/adminheader');
+    $this->load->view('admin/offerview',$data);
+   $this->load->view('templates/footer');
+
+}
+public function offersetvalidation()
+{  $offerform=array(
+       'offer_id'=>'NULL';
+      'item_id'=> $this->input->post('item_id');
+      'ofr_platinum'=>$this->input->post('ofr_platinum');
+      'ofr_gold'=>$this->input->post('ofr_gold');
+      'ofr_silver'=>$this->input->post('ofr_silver');
+      'ofr_general'=>$this->input->post('ofr_general')
+         );
+
+   $ck=$this->Admin_model->offerinsert($offerform);
+
+  if($ck==TRUE)
+  {
+
+    echo "success";
+  }
+  else {
+
+    echo "failure.try again";
+  }
+}
+
+
  }
  
  
