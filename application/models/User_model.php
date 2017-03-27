@@ -110,11 +110,22 @@ $query=$this->db->query("select order_id from tbl_order where table_id='$tbl' an
  
  
  foreach ($this->cart->contents() as $items)
- {$qty=$items['qty'];
+ 
+ {
+ 	
+ 	$qty=$items['qty'];
   $remarks=$items['remarks'];
   $price=$items['price'];
   $item_id=$items['id'];
- 	$orderitem=array('orderitem_id'=>NULL,'order_id'=>$ordrid,'item_id'=>$item_id,
+  
+        $query = $this->db->query("select item_name from tbl_item where item_id=$item_id");
+   
+        
+         foreach($query->result() as $row)
+         { $item_name=$row->item_name;
+         }
+         
+ 	$orderitem=array('orderitem_id'=>NULL,'order_id'=>$ordrid,'item_id'=>$item_id,'item_name'=>$item_name,
  					'qty'=>$qty,'remarks'=>$remarks,'price'=>$price
  						,'discount_amount'=>0);
  		$orditm=$this->db->insert('tbl_order_items',$orderitem);
