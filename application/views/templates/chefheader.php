@@ -22,7 +22,7 @@
  </nav>
  <style>
  body{
- background-image: url('<?=base_url()?>/image/chefbc.jpg');
+
     
     background-size:cover;
      background-repeat: no-repeat;
