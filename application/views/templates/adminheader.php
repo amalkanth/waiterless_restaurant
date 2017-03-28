@@ -45,9 +45,9 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="#" class="btn btn-d
                      <li>
                         <a  href="ui.html"><i class="fa fa-group fa-3x"></i>Customer details</a>
                     </li>
-                    <li><a   href="chart.html"><i class="fa fa-money fa-3x"></i> Billing</a>
+                    <li><a   href="../admin/billing"><i class="fa fa-money fa-3x"></i> Billing</a>
 </li>
-						   <li  ><a   href="chart.html"><i class="fa fa-bar-chart-o fa-3x"></i>........</a>
+						   <li  ><a   href="../admin/offerset"><i class="fa fa-bar-chart-o fa-3x"></i>set offer</a>
 </li>	
                       <li  >
                         <a  href="table.html"><i class="fa fa-table fa-3x"></i>.......</a>

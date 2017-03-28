@@ -162,7 +162,7 @@ a:active {
   <div class="row">
   <div class="of">
 	<div  class="col-sm-3 box">
-		</br></br><a href="../user/confirmorder" class="btn btn-info ">YOUR OFFERS</a> </p>
+		</br></br><a href="../user/offer" class="btn btn-info ">YOUR OFFERS</a> </p>
 <br>
 		<p>.</p>
 	</div></div>
