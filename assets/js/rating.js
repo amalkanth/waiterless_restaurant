@@ -1,6 +1,7 @@
 $('.star').on("mouseover",function(){
         //get the id of star
         var star_id = $(this).attr('id');
+        alert(star_id);
         switch (star_id){
             case "star-1":
                 $("#star-1").addClass('star-checked');
@@ -38,16 +39,16 @@ $('.star').on("mouseover",function(){
         //get the stars index from it id
         var star_index = $(this).attr("id").split("-")[1],
             product_id = $("#product_id").val(), //store the product id in variable
-            product_id = $("#product_id").val(),
+            product_id = $("#reviews").val(),
             star_container = $(this).parent(), //get the parent container of the stars
             result_div = $("#result"); //result div
-         
+         alert("hai");
         $.ajax({
             url: "user/input_rating",
             type: "POST",
-            data: {star:star_index,product_id:product_id},
+            data: {star:star_index,product_id:product_id,reviews:reviews},
             beforeSend: function(){
-                //star_container.hide(); //hide the star container
+                star_container.hide(); //hide the star container
                 result_div.show().html("Loading..."); //show the result div and display a loadin message
             },
             success: function(data){
@@ -56,3 +57,4 @@ $('.star').on("mouseover",function(){
         });
     });
  
+   

@@ -75,6 +75,6 @@ public function rating()
 }
 public function input_rating()
 {
-	
+$qry=$this->User_model->inputrating();	
 }
 }

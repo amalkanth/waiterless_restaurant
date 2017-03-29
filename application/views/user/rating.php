@@ -36,12 +36,15 @@ b.g{
  </style>
 </head>
 <body>
+
 <h3>please enter your rating and reviews of the food items,</br>your reviews help us serve better</h3>
+<a href="../user/pay" class="btn btn-warning" style="float: right;">SKIP RATING</a>
+
 <div class="rate-container">
 
 <?php $data1 = array(
-      'name'        => 'remarks',
-      'id'          => 'remarks',
+      'name'        => 'reviews',
+      'id'          => 'reviews',
       'value'       => '',
       'rows'        => '2',
       'cols'        => '20',
@@ -69,5 +72,6 @@ b.g{
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script type="text/javascript" src="../assets/js/rating.js"></script>
 <?php }?></div>
+<a href="../user/pay" class="btn btn-success "style="float: right;">PAY BILL</a>
 </body>
 </html>
