@@ -65,7 +65,7 @@ $qry=$this->User_model->confirmorder();
 }
 
  public function offer(){
-  $this->load->view('user/offerview');
+  $this->load->view('user/myoffers');
 
 }
 
