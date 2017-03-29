@@ -86,4 +86,19 @@ public function input_rating()
 {
 $qry=$this->User_model->inputrating();	
 }
+
+
+public function pay()
+{
+  $this->load->view('user/payselect');
+
+
+}
+public function paycard()
+{
+  $this->load->view('user/paycard');
+
+
+}
+
 }
