@@ -115,7 +115,7 @@ $query=$this->db->query("select order_id from tbl_order where table_id='$tbl' an
  	
  	$qty=$items['qty'];
   $remarks=$items['remarks'];
-  $price=$items['price'];
+  $price=$items['subtotal'];
   $item_id=$items['id'];
   
         $query = $this->db->query("select item_name from tbl_item where item_id=$item_id");
@@ -136,6 +136,27 @@ $query=$this->db->query("select order_id from tbl_order where table_id='$tbl' an
     // Cycle true all items and update them
     
        
+}
+public function retrieve_orders()
+{$user_id=$_SESSION['user_id'];
+	
+		$query = $this->db->query("
+    SELECT tbl_order.order_id,tbl_order.order_status,tbl_order_items.item_name,tbl_order_items.qty,tbl_order_items.price
+FROM tbl_order
+JOIN tbl_order_items ON tbl_order.order_id = tbl_order_items.order_id
+ where tbl_order.user_id='$user_id'
+ORDER BY tbl_order.order_id;");
+	
+	$results=array();
+         foreach($query->result() as $row)
+         {
+         	$results[]=array('order_status'=>$row->order_status,'item_name'=>$row->item_name,'qty'=>$row->qty,'price'=>$row->price
+         	
+         	);
+         	                 
+         }
+         
+         return $results;         
 }
 
 }
