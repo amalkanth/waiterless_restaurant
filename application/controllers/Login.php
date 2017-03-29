@@ -91,8 +91,10 @@ else {
 	}
   public function  chefvalidation(){
   	$query=$this->Chef_model->retrive_order();
+  	
+  	$data['order']=$query;
   	$this->load->view('templates/chefheader');
-		$this->load->view('chef/chefhome');
+		$this->load->view('chef/chefhome',$data);
 		$this->load->view('templates/footer');
 	}
 	

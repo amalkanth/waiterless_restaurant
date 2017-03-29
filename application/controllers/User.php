@@ -9,6 +9,7 @@ class User extends  CI_Controller{
 function cart()
 {
     $data['products'] = $this->User_model->retrieve_products(); // Retrieve an array with all products
+    $data['orders']=$this->User_model->retrieve_orders();
     $data['content'] = 'user/products'; // Select our view file that will display our products
     $this->load->view('user/viewcart',$data);
     

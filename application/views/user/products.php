@@ -1,12 +1,24 @@
 
+  
+
 <head>
 <title>Bootstrap Example</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <style>
+.modal-header, h4, .close {
+      background-color: #5cb85c;
+      color:white !important;
+      text-align: center;
+      font-size: 30px;
+  }
+  .modal-footer {
+      background-color: #f9f9f9;
+  }
 .of{
 background-image: url('image/ofr.jpg');
     background-size: 100%;
@@ -168,6 +180,76 @@ a:active {
 	</div></div>
   </div>
 </div>
+<div class="container" align="right">
+  <h2>Modal Login Example</h2>
+  <!-- Trigger the modal with a button -->
+  <button type="button" class="btn btn-default btn-lg" align="right" id="myBtn">ORDER STATUS</button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header" style="padding:35px 50px;">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4><span></span> Your orders</h4>
+        </div>
+        <div class="modal-body" style="padding:40px 50px;">
+          
+ 
+
+<table>
+  <tr>
+  
+ 
+  	 <th width="18%">Item name</th>
+     <th width="18%">quantity</th>
+     <th width="18%">Price(&#8377;)</th>
+     <th width="26%">order status</th>
+  </tr><?php $total=0;?>
+<?php  foreach($orders as $ordr)
+{
+switch ($ordr['order_status']) {
+    case 0:
+       $status="Confirmed by user";
+        break;
+    case 1:
+        $status="Confirmed by chef";
+        break;}?>
+ <tr>
+    
+    <td><?php echo $ordr['item_name'];?></td>
+    <td><?php echo $ordr['qty'];?></td>
+    <td><?php echo $ordr['price'];?></td>
+    <td><?php echo $status;?></td>
+  </tr>
+  <?php $total=$total+$ordr['price'];?>
+<?php }echo "<h3>TOTAL AMOUNT:</h3>"?><h3> &#8377;</h3><?php echo"<h3>". $total."</h3>"; ?> 
+
+
+</table>
+           
+           
+            
+             
+        </div>
+        <div class="modal-footer">
+          <a href="..user/rating" class="btn btn-success ">PAY BILL</a>
+                </div>
+      </div>
+      
+    </div>
+  </div> 
+</div>
+ 
+<script>
+$(document).ready(function(){
+    $("#myBtn").click(function(){
+        $("#myModal").modal();
+    });
+});
+</script>
 <?php $data1 = array(
       'name'        => 'remarks',
       'id'          => 'remarks',
