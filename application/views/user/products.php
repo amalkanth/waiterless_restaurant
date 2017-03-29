@@ -235,7 +235,7 @@ switch ($ordr['order_status']) {
              
         </div>
         <div class="modal-footer">
-          <a href="..user/rating" class="btn btn-success ">PAY BILL</a>
+          <a href="../user/rating" class="btn btn-success ">PAY BILL</a>
                 </div>
       </div>
       

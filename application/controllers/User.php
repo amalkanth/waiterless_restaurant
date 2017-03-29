@@ -78,5 +78,12 @@ public function backtocart()
 {
     redirect('user/cart');
 }
-
+public function rating()
+{$data['orders']=$this->User_model->retrieve_orders();
+	$this->load->view('user/rating',$data);
+}
+public function input_rating()
+{
+	
+}
 }

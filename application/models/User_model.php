@@ -141,7 +141,7 @@ public function retrieve_orders()
 {$user_id=$_SESSION['user_id'];
 	
 		$query = $this->db->query("
-    SELECT tbl_order.order_id,tbl_order.order_status,tbl_order_items.item_name,tbl_order_items.qty,tbl_order_items.price
+    SELECT tbl_order.order_id,tbl_order.order_status,tbl_order_items.item_id,tbl_order_items.item_name,tbl_order_items.qty,tbl_order_items.price
 FROM tbl_order
 JOIN tbl_order_items ON tbl_order.order_id = tbl_order_items.order_id
  where tbl_order.user_id='$user_id'
@@ -150,7 +150,7 @@ ORDER BY tbl_order.order_id;");
 	$results=array();
          foreach($query->result() as $row)
          {
-         	$results[]=array('order_status'=>$row->order_status,'item_name'=>$row->item_name,'qty'=>$row->qty,'price'=>$row->price
+         	$results[]=array('order_status'=>$row->order_status,'item_id'=>$row->item_id,'item_name'=>$row->item_name,'qty'=>$row->qty,'price'=>$row->price
          	
          	);
          	                 
