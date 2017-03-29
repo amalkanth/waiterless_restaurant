@@ -3,7 +3,7 @@
         <div id="page-wrapper" >
             <div id="page-inner">
                 <div class="row">
-                    <div class="col-md-12">
+                    <div classe="col-md-12">
                      <h2>Admin home</h2>   
                         <h5>Welcome Admin  </h5>
                     </div>
