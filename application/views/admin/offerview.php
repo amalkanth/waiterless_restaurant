@@ -51,7 +51,7 @@
 				document.getElementById("item_id").innerHTML=xmlhttp.responseText;
 			}
 		}
-		xmlhttp.open("GET","../assets/ajax/ajaxoffer.php?cat_id="+sub_id,true);
+		xmlhttp.open("GET","../assets/ajax/ajaxoffer.php?sub_id="+sub_id,true);
 		xmlhttp.send();
 	}
 	</script>
@@ -100,7 +100,7 @@
 
 		<br><br><br>
 		<?php echo form_label('item name'); ?>
-		<select name="item" id="item_id">
+		<select name="item_id" id="item_id">
 		
 			<option value="">------select item-----</option>
 		</select>
