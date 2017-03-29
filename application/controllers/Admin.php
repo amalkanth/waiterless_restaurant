@@ -216,11 +216,11 @@ public function offerset()
 }
 public function offersetvalidation()
 {  $offerform=array(
-       'offer_id'=>'NULL';
-      'item_id'=> $this->input->post('item_id');
-      'ofr_platinum'=>$this->input->post('ofr_platinum');
-      'ofr_gold'=>$this->input->post('ofr_gold');
-      'ofr_silver'=>$this->input->post('ofr_silver');
+       'offer_id'=>'NULL',
+      'item_id'=> $this->input->post('item_id'),
+      'ofr_platinum'=>$this->input->post('ofr_platinum'),
+      'ofr_gold'=>$this->input->post('ofr_gold'),
+      'ofr_silver'=>$this->input->post('ofr_silver'),
       'ofr_general'=>$this->input->post('ofr_general')
          );
 

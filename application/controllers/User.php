@@ -65,9 +65,18 @@ $qry=$this->User_model->confirmorder();
 	 
 }
 
- public function offer(){
-  $this->load->view('user/myoffers');
+ public function offer()
+ {
 
+   $data['products']= $this->User_model->offervariable();  
+   $data['content'] = 'user/myoffers'; // Select our view file that will display our products
+    $this->load->view('user/viewcart1',$data);
+    
+}
+
+public function backtocart()
+{
+    redirect('user/cart');
 }
 public function rating()
 {$data['orders']=$this->User_model->retrieve_orders();

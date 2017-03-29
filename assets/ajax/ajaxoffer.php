@@ -1,5 +1,5 @@
 
-<option value="">-------select--------</option>
+<option value="">-------select--pp------</option>
 <?php
 $con=mysqli_connect("localhost","root","");
 mysqli_select_db($con,"waiterless_restaurant");
@@ -13,7 +13,7 @@ mysqli_select_db($con,"waiterless_restaurant");
 					$sname=$data["item_name"];
 				?>
 				
-                <option value="<?php echo $sid; ?>" id="<?php echo $sid; ?>"><?php echo $sname; ?></option>
+                <option value="<?php echo $sid; ?>"><?php echo $sname; ?></option>
             
                 <?php
 				}

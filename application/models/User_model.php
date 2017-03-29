@@ -159,18 +159,6 @@ ORDER BY tbl_order.order_id;");
          return $results;         
 }
 
-public function inputrating()
-{
-	 $star = $this->input->post('star'); // Assign posted product_id to $id
-    $product_id = $this->input->post('product_id'); // Assign posted quantity to $cty
-     $reviews = $this->input->post('reviews');
-     $user_id=$_SESSION['user_id'];
-$date=$_SESSION['date'];
-     $rate=array('rating_id'=>NULL,'rating'=>$star,'review'=>$reviews,'item_id'=>$product_id,
-     'user_id'=>$user_id,'date'=>$date);
-     $rating=$orditm=$this->db->insert('tbl_item_rating',$orderitem);
-}
-
 }
 
 
