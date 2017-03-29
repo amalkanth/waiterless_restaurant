@@ -9,8 +9,9 @@ class Admin extends  CI_Controller{
 	}
 	
 	public function billing()
-	{ $this->load->view('templates/adminheader');
-	   $this->load->view('admin/billing');
+	{ $data['orders']=$this->User_model->retrieve_orders();
+		$this->load->view('templates/adminheader');
+	   $this->load->view('admin/billing',$data);
 	   $this->load->view('templates/footer');
 		
 	}
