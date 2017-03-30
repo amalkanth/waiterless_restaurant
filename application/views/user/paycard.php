@@ -34,6 +34,18 @@ body { margin-top:20px; }
     outline: 0;
     box-shadow: inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba(255,0,0,0.6);
 }
+.container{
+
+     margin-top: 100px;
+    margin-bottom: 100px;
+    margin-right: 150px;
+    margin-left: 300px;
+border-style: solid;
+}
+.cnt{
+  margin-right: 0px; 
+  margin-left: 180px; 
+}
 .credit-card-box label.error {
   font-weight: bold;
   color: red;
@@ -72,7 +84,7 @@ body { margin-top:20px; }
 <!-- If you're using Stripe for payments -->
 <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
 
-<div class="container">
+<div class="container"><div class="cnt">
     <div class="row">
         <!-- You can make it whatever width you want. I'm making it full width
              on <= small devices and 4/12 page width on >= medium devices -->
@@ -157,7 +169,7 @@ body { margin-top:20px; }
                         </div>
                     </form>
                 </div>
-            </div>            
+            </div>      </div>      
             <!-- CREDIT CARD FORM ENDS HERE -->
             
             

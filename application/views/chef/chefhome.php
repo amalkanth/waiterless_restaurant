@@ -40,7 +40,7 @@ th {
 {
  if($ordr['order_id']!=$id)
 {?><?php  $id=$ordr['order_id']; ?>
-<table><?php echo "ORDER ID:". $ordr['order_id'];?><a href="../confirm_order/<?php echo  $ordr['order_id'];?>" class="btn btn-danger ">CONFIRM ORDER</a>
+<table><?php echo "ORDER ID:". $ordr['order_id'];?><a href="../chef/confirm_order/<?php echo  $ordr['order_id'];?>" class="btn btn-danger ">CONFIRM ORDER</a>
   <tr>
   	<th width="18%">Table no</th>
   	 <th width="22%">Order time</th>
