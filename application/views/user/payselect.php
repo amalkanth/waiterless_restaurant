@@ -33,13 +33,14 @@ border-style: solid;
 
 </style>
 </head>
+<link rel="stylesheet" href="../assets/style.css" />
 <body>
 <div class="bdy">
 <h2>PAY METHODS</h2>
 
-<a href="#../admin/billing" class="button">PAY CASH</a>
+<a href="#../admin/billing" class="button">PAY BY CASH</a>
 <br><br>
-<a href="../user/paycard" class="button">PAY CARD</a>
+<a href="../user/paycard" class="button">PAY BY CARD</a>
 </div>
 
 </body>
