@@ -92,7 +92,7 @@
     function show_orders()
     {
         var http=new XMLHttpRequest();
-        alert("oored");
+        
 		/*http.onreadystatechange=function()
 		{
 			if(http.readyState==4)

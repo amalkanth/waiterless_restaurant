@@ -1,177 +1,225 @@
-<!DOCTYPE div PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><head>
-<style type="text/css">
-.flat-form {
-    background-color : transparent;
-	
-	color: white;
-	margin: 25px auto;
-	width: 390px;
-	height: 340px;
-	position: relative;
-	font-family: 'Roboto';
-  .tabs {
-    display: block;
-    background: #c0392b;
+<!DOCTYPE html>
+<html>
+<style>
+/* Full-width input fields */
+input[type=text], input[type=password] {
     width: 100%;
-    height: 40px;
-    margin: 0;
-    margin-bottom: 20px;
-    padding: 0;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+/* Set a style for all buttons */
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+    width: auto;
+    padding: 10px 18px;
+    background-color: #f44336;
+}
+
+/* Center the image and position the close button */
+.imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
     position: relative;
-    list-style-type: none;
-    li {
-      display: block;
-      margin: 0;
-      padding: 0;
-      float: left;
-      a {
-        display: block;
-        background: #c0392b;
-        color: white;
-        text-decoration: none;
-        font-size: 16px;
-        float: left;
-        padding: 12px 22px;
-        &.active {
-          background: #e74c3c;
-          border-right: none;
-          @include transition( all 0.5s linear );
-        } 
-        &:hover {
-          background: lighten( #c0392b, 10% );
-          @include transition( all 0.5s linear );
-        }       
-      }
-      &:last-child a {
-        text-align: center;
-        width: 174px;
-        padding-left: 0;
-        padding-right: 0;
-        border-right: none;
-      }      
+}
+
+img.avatar {
+    width: 40%;
+    border-radius: 50%;
+}
+
+.container {
+    padding: 16px;
+    
+}
+
+span.psw {
+    float: right;
+    padding-top: 16px;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    padding-top: 60px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button (x) */
+.close {
+    position: absolute;
+    right: 25px;
+    top: 0;
+    color: #000;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: red;
+    cursor: pointer;
+}
+
+/* Add Zoom Animation */
+.animate {
+    -webkit-animation: animatezoom 0.6s;
+    animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+    from {-webkit-transform: scale(0)} 
+    to {-webkit-transform: scale(1)}
+}
+    
+@keyframes animatezoom {
+    from {transform: scale(0)} 
+    to {transform: scale(1)}
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+    span.psw {
+       display: block;
+       float: none;
     }
-; 	background-color: #FFFF99;
-	background-color: #FFFF66;
-	background-color: #e74c3c;
-	background-color: #ffff66;
-  }
-  .form-action {
-    padding: 0 20px;
-    position: relative;
-  }
-  h1 {
-	font-size: 42px;
-	padding-bottom: 10px;
-	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
-  }
-  p {
-    font-size: 12px;
-    padding-bottom: 10px;
-    line-height: 25px;
-  }
-  a {
-	color: #000;
-	text-decoration: none;
-    &:hover{
-      text-decoration: underline;
-	font-weight: bold;
+    .cancelbtn {
+       width: 100%;
     }
-  }
-  form {
-    padding-right: 20px !important;
-    input{
-      &[type=text],
-      &[type=password],
-      &[type=submit] {
-        font-family: 'Roboto';
-      }
-      &[type=text],
-      &[type=password] {
-        width: 100%;
-        height: 40px;
-        margin-bottom: 10px;
-        padding-left: 15px;
-        background: #fff;
-        border: none;
-        color: #e74c3c;
-        outline: none;
-      }
-      &.button {
-        border: none;
-        display: block;
-        background: #136899;
-        height: 40px;
-        width: 80px;
-        color: #ffffff;
-        text-align: center;
-        @include border-radius( 5px );
-        @include box-shadow( 0px 3px 1px #2075aa );
-        @include transition( all 0.15s linear );
-        &:hover {
-          background: #1e75aa;
-          @include box-shadow( 0 3px 1px #237bb2 );
-        }
-        &:active {
-          background: #136899;
-          @inclue box-shadow( 0 3px 1px #0f608c );
-        }
-      }  
-      $placeholder-color: #e74c3c;
-      &::-webkit-input-placeholder {color: $placeholder-color;}
-      &:-moz-placeholder {color: $placeholder-color;}
-      &::-moz-placeholder {color: $placeholder-color;}
-      &:-ms-input-placeholder {color: $placeholder-color;}      
-    }
-  }
-  .show {display: block;}
-  .hide {display: none;}
 }
 
 
+html { height: 100% }
+::-moz-selection { background: #fe57a1; color: #fff; text-shadow: none; }
+::selection { background: #fe57a1; color: #fff; text-shadow: none; }
+body { background-image: radial-gradient( cover, rgba(92,100,111,1) 0%,rgba(31,35,40,1) 100%), url('http://i.minus.com/io97fW9I0NqJq.png') }
+.login {
+  background: #eceeee;
+  border: 1px solid #42464b;
+  border-radius: 6px;
+  height: 257px;
+  margin: 20px auto 0;
+  width: 298px;
+}
+
+input[type="password"], input[type="text"] {
+  background: url('http://i.minus.com/ibhqW9Buanohx2.png') center left no-repeat, linear-gradient(top, #d6d7d7, #dee0e0);
+  border: 1px solid #a1a3a3;
+  border-radius: 4px;
+  box-shadow: 0 1px #fff;
+  box-sizing: border-box;
+  color: #696969;
+  height: 39px;
+  margin: 31px 0 0 29px;
+  padding-left: 37px;
+  transition: box-shadow 0.3s;
+  width: 240px;
+}
+input[type="password"]:focus, input[type="text"]:focus {
+  box-shadow: 0 0 4px 1px rgba(55, 166, 155, 0.3);
+  outline: 0;
+}
+.show-password {
+  display: block;
+  height: 16px;
+  margin: 26px 0 0 28px;
+  width: 87px;
+}
+input[type="checkbox"] {
+  cursor: pointer;
+  height: 16px;
+  opacity: 0;
+  position: relative;
+  width: 64px;
+}
+input[type="checkbox"]:checked {
+  left: 29px;
+  width: 58px;
+}
+.toggle {
+  background: url(http://i.minus.com/ibitS19pe8PVX6.png) no-repeat;
+  display: block;
+  height: 16px;
+  margin-top: -20px;
+  width: 87px;
+  z-index: -1;
+}
+input[type="checkbox"]:checked + .toggle { background-position: 0 -16px }
+.forgot {
+  color: #7f7f7f;
+  display: inline-block;
+  float: right;
+  font: 12px/1 sans-serif;
+  left: -19px;
+  position: relative;
+  text-decoration: none;
+  top: 5px;
+  transition: color .4s;
+}
+.forgot:hover { color: #3b3b3b }
 
 
+.shadow {
+  background: #000;
+  border-radius: 12px 12px 4px 4px;
+  box-shadow: 0 0 20px 10px #000;
+  height: 12px;
+  margin: 30px auto;
+  opacity: 0.2;
+  width: 270px;
+}
 
-// Body Stuff below
-body {
-  background: #1a1a1a;
+
+input[type="submit"]:active {
+  top:3px;
+  box-shadow: inset 0px 1px 0px #2ab7ec, 0px 2px 0px 0px #31524d, 0px 5px 3px #999;
 }
-.flat-form .tabs li {
-	font-weight: bold;
+.container2{
+padding-left:470px;
+width:62%;
 }
-.flat-form .tabs li {
-	color: #000;
-}
-.flat-form ul li .active {
-	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
-}
+
 </style>
-<script type="text/javascript">
-$('.tabs').on('click', 'li a', function(e){
-	  e.preventDefault();
-	  var $tab = $(this),
-	       href = $tab.attr('href');
+<body>
 
-	   $('.active').removeClass('active');
-	   $tab.addClass('active');
-
-	   $('.show')
-	      .removeClass('show')
-	      .addClass('hide')
-	      .hide();
-	  
-	    $(href)
-	      .removeClass('hide')
-	      .addClass('show')
-	      .hide()
-	      .fadeIn(550);
-	});
-
-</script>
+<div class="login">
+<h2>Customer login</h2>
 <div class="flat-form">
   <ul>
-    <li>
-      <a href="#" class="active">Login</a>
-    </li>
+   
     <li>
       <a href="register">Register</a>
     </li>
@@ -180,11 +228,19 @@ $('.tabs').on('click', 'li a', function(e){
     </li>
   </ul>
   
-  <div id="login" class="form-action show">
-    <h1>Login .</h1>
-    <?php echo $_SESSION['tableno']; ?>
-<div id="container">
-
+   
+<div class="container"> <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;"><?php echo"  "?>Login</button>
+</br>
+<div id="id01" class="modal">
+  
+  <div class="imgcontainer">
+      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+      
+    </div>
+<div class="flat-form1">
+  
+   <div class="container1" style="background-color:#f1f1f1">
+  <div class="login">
 <?php echo form_open('table/userloginvalidation'); ?>
 <?php  echo validation_errors();?>
 <?php echo form_label('USERNAME :'); ?>
@@ -194,5 +250,35 @@ $('.tabs').on('click', 'li a', function(e){
 <?php echo form_submit(array('id' => 'submit', 'value' => 'LOGIN')); ?>
 <?php echo form_close(); ?>
 </div>
-  </div>
+
+      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+      <span class="psw">Forgot <a href="resetpassword">password?</a></span>
+    </div>
+  </form>
 </div>
+</div><a href="../table/guest" class="btn btn-warning ">Enter as GUEST</a> </div>
+
+
+</div>
+</div>
+
+</div>
+<div class="container2">
+
+  <div class="well">**entering as a registered user helps us serve you better</div>
+</div>
+
+<script>
+// Get the modal
+var modal = document.getElementById('id01');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>
+
+</body>
+</html>

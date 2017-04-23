@@ -49,15 +49,29 @@ class Table extends CI_Controller{
 	{
 		$this->load->view('templates/header');
 		echo "invalid credentials";
-		//$this->load->view('login/adminloginerror');
+		$this->load->view('user/userlogin');
 		$this->load->view('templates/footer');
 		
 	}
 
 }
+public function guest()
+{
+$_SESSION['user_name']="guest";
+
+	
+	
+         $_SESSION['user_id']=2;
+         
+		//$this->load->view('templates/adminheader');
+		//$this->load->view('user/userhome');
+         redirect('user/cart');
+		//$this->load->view('templates/footer');
+    
+}
 
 public function register()
-{ $data['message']="regnow";
+{ $data['message']="";
   $this->load->view('user/userregister',$data);
 
 }
@@ -69,46 +83,53 @@ public function resetpassword()
 }
 
 public function  userregistervalidation(){
-		$username=$this->input->post('username');
+	$username=$this->input->post('username');
 	    $password=$this->input->post('password');
 	    $emailid=$this->input->post('emailid');
 	    $phno=$this->input->post('phno');
+	 $data['message']="";
+	  $this->form_validation->set_rules('username','username','trim|required|xss_clean');
+	$this->form_validation->set_rules('password','password','trim|required|xss_clean');
+	  $this->form_validation->set_rules('phno','phno','trim|numeric|required|xss_clean');
+	$this->form_validation->set_rules('emailid','emailid','trim|valid_emails|required|xss_clean');
+	
+		
 /*	    $this->form_validation->set_rules('username','username','trim|required|xss_clean');
 	$this->form_validation->set_rules('password','password','trim|required|xss_clean');
 	$this->form_validation->set_rules('emailid','emailid','trim|required|xss_clean');
 	$this->form_validation->set_rules('phno','phno','trim|required|xss_clean');
 */	
-echo $username;
+
     
 
-/*	if ($this->form_validation->run()== FALSE)
+	if ($this->form_validation->run()== FALSE)
 {
-	//$this->load->view('templates/header');
-		$this->load->view('user/userlogin');
-	//	$this->load->view('templates/footer');
+	$this->load->view('templates/header');
+		$this->load->view('user/userregister',$data);
+		$this->load->view('templates/footer');
 		
-}*/
-//else {
+}
+else {
 	
 	$data=array("username"=>$username,"password"=>$password,"emailid"=>$emailid,"phno"=>$phno);
 	$ck=$this->Login_model->userregisterinsert($data);
 	if($ck==TRUE)//valid credentials
 	{
-         echo "success";
-		//$this->load->view('templates/adminheader');
-		$this->load->view('user/userhome');
-		//$this->load->view('templates/footer');
+         echo "</br></br></br></br></br></br></br></br>Registration success. Please login";
+		$this->load->view('templates/header');
+		$this->load->view('user/userlogin');
+		$this->load->view('templates/footer');
     }
     
   if($ck!=TRUE)//invalid credentials
 {      $data['message']="registeration failed try again";
-	//$this->load->view('templates/header');
+	$this->load->view('templates/header');
 		$this->load->view('user/userregister',$data);
-	//	$this->load->view('templates/footer');
+		$this->load->view('templates/footer');
 		
 }
 }
-//}
+}
 
 public function tablerehome()
 {

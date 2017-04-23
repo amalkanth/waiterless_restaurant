@@ -1,14 +1,12 @@
-
-  
-
 <head>
 <title>Bootstrap Example</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
 <style>
 .modal-header, h4, .close {
       background-color: #5cb85c;
@@ -131,7 +129,7 @@ a:active {
       
     </ul>  
   <ul  class="nav navbar-nav navbar-right">
-      <li><a href="table/settable"><h4>Logout</h4></a></li>
+      <li><a href="../table/settable"><h4>Logout</h4></a></li>
       
     </ul>  </div></div>
 </nav>
@@ -207,7 +205,7 @@ a:active {
      <th width="18%">quantity</th>
      <th width="18%">Price(&#8377;)</th>
      <th width="26%">order status</th>
-  </tr><?php $total=0;?>
+  </tr><?php $total=0;$status="";?>
 <?php  foreach($orders as $ordr)
 {
 switch ($ordr['order_status']) {

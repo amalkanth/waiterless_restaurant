@@ -1,3 +1,4 @@
+
 <head>
 <style >
 html { height: 100% }
@@ -11,6 +12,9 @@ body { background-image: radial-gradient( cover, rgba(92,100,111,1) 0%,rgba(31,3
   height: 257px;
   margin: 20px auto 0;
   width: 298px;
+}
+h4 {
+    color: green;
 }
 .login h1 {
   background-image: linear-gradient(top, #f1f3f3, #d4dae0);
@@ -122,17 +126,16 @@ input[type="submit"]:active {
   top:3px;
   box-shadow: inset 0px 1px 0px #2ab7ec, 0px 2px 0px 0px #31524d, 0px 5px 3px #999;
 }
-
-
-
 </style>
 </head>
 
 <body>
 
+
 <div id="container">
 <div class="login">
-<?php echo form_open('login/adminvalidation'); ?>
+<h4>invalid credentials</h4>
+<?php echo form_open('login/chefvalidation'); ?>
 <?php  echo validation_errors();?>
 <?php echo form_label('USERNAME :'); ?>
 <?php echo form_input(array('id' => 'username', 'name' => 'username')); ?>

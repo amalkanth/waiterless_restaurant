@@ -15,7 +15,6 @@ color:black;
 <body>
 <div class="bdy">
 <div id="container">
-<h1>TABLE HOME</h1>
 <?php echo form_open('table/settable'); ?>
 
 <?php echo form_label('TABLENO :'); ?>

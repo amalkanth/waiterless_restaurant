@@ -158,6 +158,108 @@ ORDER BY tbl_order.order_id;");
          
          return $results;         
 }
+public function offervariable()
+ 
+ {   $user_id=$_SESSION['user_id'];
+     $query=$this->db->query("select * from tbl_user where user_id=$user_id");
+    foreach($query->result() as $row)
+         {
+           $category=$row->category;
+         }
+ 
+     switch($category){
+                        case 0:  $query=$this->db->query("select * from tbl_offer where ofr_general>0");
+                                   $fans=array();
+                                  foreach($query->result() as $row)
+                                  { 
+                                     //$results=array('offer_id'=>$row->offer_id,'item_id'=>$row->item_id,'ofr_general'=>$row->ofr_general);
+                                     $id=$row->item_id;
+                                     $ofr=$row->ofr_general;
+                                             $query1 = $this->db->query("
+                                             SELECT tbl_item.item_id,tbl_item.item_name,tbl_item.price,tbl_item.description,tbl_image.path
+                                             FROM tbl_item
+                                             LEFT JOIN tbl_image ON tbl_item.item_id = tbl_image.item_id where tbl_item.item_id=$id
+                                            ORDER BY tbl_item.item_id;");
+ 
+                                    foreach($query1->result() as $row1)
+                                      {
+                         $fans[]=array('item_id'=>$id,'item_name'=>$row1->item_name,'price'=>$row1->price,'path'=>$row1->path,'ofr'=>$ofr);
+                                      }
+                                   
+                                 }
+                                 
+                                 break;
+                         case 1:  $query=$this->db->query("select * from tbl_offer where ofr_silver>0");
+                                  $fans=array();
+                                 foreach($query->result() as $row)
+                                 { 
+                                    //$results=array('offer_id'=>$row->offer_id,'item_id'=>$row->item_id,'ofr_general'=>$row->ofr_general);
+                                    $id=$row->item_id;
+                                     $ofr=$row->ofr_silver;
+                                             $query1 = $this->db->query("
+                                             SELECT tbl_item.item_id,tbl_item.item_name,tbl_item.price,tbl_item.description,tbl_image.path
+                                             FROM tbl_item
+                                             LEFT JOIN tbl_image ON tbl_item.item_id = tbl_image.item_id where tbl_item.item_id=$id
+                                             ORDER BY tbl_item.item_id;");
+ 
+                                     foreach($query1->result() as $row1)
+                                       {
+                          $fans[]=array('item_id'=>$id,'item_name'=>$row1->item_name,'price'=>$row1->price,'path'=>$row1->path,'ofr'=>$ofr);
+                                       }
+                                    
+                                  }
+                                  
+                                  break;
+                          
+                            case 2:  $query=$this->db->query("select * from tbl_offer where ofr_gold>0");
+                                   $fans=array();
+                                  foreach($query->result() as $row)
+                                  { 
+                                     //$results=array('offer_id'=>$row->offer_id,'item_id'=>$row->item_id,'ofr_general'=>$row->ofr_general);
+                                     $id=$row->item_id;
+                                     $ofr=$row->ofr_gold;
+                                             $query1 = $this->db->query("
+                                             SELECT tbl_item.item_id,tbl_item.item_name,tbl_item.price,tbl_item.description,tbl_image.path
+                                             FROM tbl_item
+                                             LEFT JOIN tbl_image ON tbl_item.item_id = tbl_image.item_id where tbl_item.item_id=$id
+                                             ORDER BY tbl_item.item_id;");
+ 
+                                     foreach($query1->result() as $row1)
+                                       {
+                          $fans[]=array('item_id'=>$id,'item_name'=>$row1->item_name,'price'=>$row1->price,'path'=>$row1->path,'ofr'=>$ofr);
+                                       }
+                                    
+                                  }
+ 
+                                  break;
+ 
+                               case 3:  $query=$this->db->query("select * from tbl_offer where ofr_platinum>0");
+                                   $fans=array();
+                                  foreach($query->result() as $row)
+                                  { 
+                                    //$results=array('offer_id'=>$row->offer_id,'item_id'=>$row->item_id,'ofr_general'=>$row->ofr_general);
+                                     $id=$row->item_id;
+                                     $ofr=$row->ofr_platinum;
+                                             $query1 = $this->db->query("
+                                             SELECT tbl_item.item_id,tbl_item.item_name,tbl_item.price,tbl_item.description,tbl_image.path
+                                             FROM tbl_item
+                                             LEFT JOIN tbl_image ON tbl_item.item_id = tbl_image.item_id where tbl_item.item_id=$id
+                                             ORDER BY tbl_item.item_id;");
+ 
+                                     foreach($query1->result() as $row1)
+                                       {
+    $fans[]=array('item_id'=>$id,'item_name'=>$row1->item_name,'price'=>$row1->price,
+                 'description'=>$row1->description,'path'=>$row1->path,'ofr'=>$ofr);
+                                       }
+                                    
+                                  }
+ 
+                                  break;
+                    }
+ 
+           return $fans;
+ 
+}
 
 }
 

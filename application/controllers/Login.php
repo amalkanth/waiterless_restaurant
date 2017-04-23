@@ -91,11 +91,44 @@ else {
 	}
   public function  chefvalidation(){
   	$query=$this->Chef_model->retrive_order();
-  	
   	$data['order']=$query;
-  	$this->load->view('templates/chefheader');
+  	
+  		$username=$this->input->post('username');
+	    $password=$this->input->post('password');
+	    
+	    $this->form_validation->set_rules('username','username','trim|required|xss_clean');
+	$this->form_validation->set_rules('password','password','trim|required|xss_clean');
+	if ($this->form_validation->run()== FALSE)
+{
+	$this->load->view('templates/header');
+		$this->load->view('login/cheflogin');
+		$this->load->view('templates/footer');
+		
+}
+else {
+	
+	$query=$this->Login_model->chefvalidation($username,$password);
+	
+	if($query==1)//valid credentials
+	{
+
+		$this->load->view('templates/chefheader');
 		$this->load->view('chef/chefhome',$data);
 		$this->load->view('templates/footer');
+    }
+    
+  if($query!=1)//invalid credentials
+{
+	$this->load->view('templates/header');
+		$this->load->view('login/chefloginerror');
+		$this->load->view('templates/footer');
+		
+}
+}
+  	
+  	
+  	
+  
 	}
 	
 
@@ -132,10 +165,23 @@ else {
 		
 }
 }
+
 	}
 
 
-
+public function confirm_order($id)
+	{
+		$qry=$this->Chef_model->confirm_order($id);	
+	if($qry)
+	{
+		$query=$this->Chef_model->retrive_order();
+  	
+  	$data['order']=$query;
+  	$this->load->view('templates/chefheader');
+		$this->load->view('chef/chefhome',$data);
+		$this->load->view('templates/footer');
+	}
+	}
 
 
 

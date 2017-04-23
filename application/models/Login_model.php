@@ -64,8 +64,17 @@
         else{
         	return FALSE;
             }
+            
        
        } 
+        public function chefvalidation($usr,$pwd)
+	  	 {
+	  	 	$pw=$pwd;
+	  	 	
+	  	 	$query = $this->db->get_where('tbl_cheflogin', array('username' => $usr,'password' =>$pw));
+	  	 		  	 	return $query->num_rows();
+	  	 }
+	  	 
     }
 
        

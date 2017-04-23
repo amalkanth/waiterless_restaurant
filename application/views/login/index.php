@@ -1,19 +1,8 @@
+
+
 <head>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script>
-$(document).ready(function(){
-    $("well1").focus(function(){
-        $(this).css("background-color", "#cccccc");
-    });
-    $("well1").blur(function(){
-        $(this).css("background-color", "#ffffff");
-    });
-});
-</script>
 
 <style>
- 
-<!--
 
 .well1 {
 vertical-align: middle;
@@ -37,9 +26,7 @@ vertical-align:middle;
     
 }
 
-.photo:hover {
-    background-size: 500px;
-}
+
 .well2 {
     background-image: url('image/table.jpg');
     background-size: 100%;
@@ -87,16 +74,11 @@ text-align: center;
 .photo:hover {
     background-size: 500px;
 }
-body{
- 	background:url("image/restaurant.jpg");
-    background-size:cover;
-     background-repeat: no-repeat;
-    background-position: center;
-}
+
 </style>
 </head>
 <body>
-<h1>THIS IS INDEX</h1>
+
 <div class="c1" align="center">
 <div class="text1" >
 <div class="well1"><a class="well1" href="<?php echo base_url()?>login/adminlogin" title="photo" id="well1"><h3>ADMIN LOGIN</h3> </a></div><br><br>
