@@ -261,6 +261,29 @@ public function offervariable()
  
 }
 
+public function inputrating($star,$review)
+{
+	$tableno=$_SESSION['tableno'];
+$user_name=$_SESSION['user_name'];
+$date=$_SESSION['date'];
+
+
+$rate=array('feedback_id'=>NULL,'user_name'=>$user_name,'feedback'=>$review,'rating'=>$star,
+				'date'=>$date);	
+
+
+
+$sql=$this->db->insert_string('tbl_feedback',$rate);
+  		$query=$this->db->query($sql);
+  		if($query == TRUE){
+  			return TRUE;
+  		}
+  	
+  		else {
+  			
+  			return FALSE;
+  		}
+}
 }
 
 

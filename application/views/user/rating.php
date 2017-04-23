@@ -1,76 +1,41 @@
 <html>
-<head>
-    <title>HOTEL NAME</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
- <style>
- .rate-container
- {
-  padding-left:100px;
- }
- 
- .container{
-    background: white;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    height: 100%;
-    padding: 40px;
-}
-.star{
-    color: #ccc;
-    cursor: pointer;
-    transition: all 0.2s linear;
-}
-.star-checked{
-    color: gold;
-}
-#result{
-    display: none;
-}
-b.r{
-    color: red;
-}
-b.g{
-    color: green;
-}
- </style>
-</head>
+<head></head>
 <body>
 
-<h3>please enter your rating and reviews of the food items,</br>your reviews help us serve better</h3>
-<a href="../user/pay" class="btn btn-warning" style="float: right;">SKIP RATING</a>
+<link rel="stylesheet" href="../assets/style.css" />
+<div class="container">
+<div class="login">
+<h3>Please rate our food and service</h3>
+<form id="ratingsForm" action="input_rating" method="post">
+	<div class="stars">
+		<input type="radio" name="star" class="star-1" value=1 id="star-1" />
+		<label class="star-1" for="star-1">1</label>
+		<input type="radio" name="star" class="star-2" value=2 id="star-2" />
+		<label class="star-2" for="star-2">2</label>
+		<input type="radio" name="star" class="star-3" value=3 id="star-3" />
+		<label class="star-3" for="star-3">3</label>
+		<input type="radio" name="star" class="star-4" value=4 id="star-4" />
+		<label class="star-4" for="star-4">4</label>
+		<input type="radio" name="star" class="star-5" value=5 id="star-5" />
+		<label class="star-5" for="star-5">5</label>
+		 
 
-<div class="rate-container">
-
-<?php $data1 = array(
-      'name'        => 'reviews',
-      'id'          => 'reviews',
-      'value'       => '',
-      'rows'        => '2',
-      'cols'        => '20',
-      'style'       => 'width:50%',
-    );?>
-
-	
-
-    <input type="hidden" value="id" id="product_id">
-    
+		<span></span>
+		
+	</div>
+  <p><?php echo form_label('.  .      .Review:')?></p>
+   <p> 
+     <input type="text" name="review" id="review" />
+   </p>
+   <p><?php echo form_submit(array('id' => 'submit', 'value' => 'Submit')); ?>
+   </p>
+   <p>&nbsp;</p> 
    
-      
-        <?php echo form_label("reviews");?>
-        <?php echo form_textarea($data1); ?></br>
-        <div id="star-container">
-            <i class="fa fa-star fa-3x star" id="star-1"></i>
-            <i class="fa fa-star fa-3x star" id="star-2"></i>
-            <i class="fa fa-star fa-3x star" id="star-3"></i>
-            <i class="fa fa-star fa-3x star" id="star-4"></i>
-            <i class="fa fa-star fa-3x star" id="star-5"></i>
-        
-        <div id="result"></div>
-    </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script type="text/javascript" src="../assets/js/rating.js"></script>
-</div>
-<a href="../user/pay" class="btn btn-success "style="float: right;">PAY BILL</a>
+   <p align="right"><a href="../user/pay" class="button"> Skip rating</a>
+   </p>
+   </div>
+   </div>
+</form>
+
 </body>
 </html>

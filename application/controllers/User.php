@@ -84,7 +84,12 @@ public function rating()
 }
 public function input_rating()
 {
-$qry=$this->User_model->inputrating();	
+	$star=$this->input->post('star');
+	$review=$this->input->post('review');
+	
+$qry=$this->User_model->inputrating($star,$review);
+echo "thankyou for your feedback";
+$this->load->view('user/payselect');	
 }
 
 
