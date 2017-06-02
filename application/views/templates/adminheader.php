@@ -24,11 +24,11 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Hotel name</a></div>
+                <a class="navbar-brand" href="<?php echo base_url();?>login/refresh">Hotel name</a></div>
   <div style="color: white;
 padding: 15px 50px 5px 50px;
 float: right;
-font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="#" class="btn btn-danger square-btn-adjust">Logout</a> </div>
+font-size: 16px;">  &nbsp; <a href="<?php echo base_url();?>login/adminvalidation" class="btn btn-danger square-btn-adjust">Logout</a> </div>
         </nav>   
            <!-- /. NAV TOP  -->
                 <nav class="navbar-default navbar-side" role="navigation">
@@ -43,14 +43,18 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="#" class="btn btn-d
                         <a class="active-menu"  href="../admin/menu"><i class="fa fa-cutlery fa-3x"></i>Menu</a>
                     </li>
                      <li>
-                        <a  href="ui.html"><i class="fa fa-group fa-3x"></i>Customer details</a>
+                        <a  href="../admin/custdetl"><i class="fa fa-group fa-3x"></i>Customer details</a>
                     </li>
                     <li><a   href="../admin/billing"><i class="fa fa-money fa-3x"></i> Billing</a>
 </li>
 						   <li  ><a   href="../admin/offerset"><i class="fa fa-bar-chart-o fa-3x"></i>set offer</a>
 </li>	
                       <li  >
-                        <a  href="table.html"><i class="fa fa-table fa-3x"></i>.......</a>
+                        <a  href="../admin/feedback"><i class="fa fa-table fa-3x"></i>feedback</a>
+                    </li>
+                   
+                   <li  >
+                        <a  href="#"><i class="fa fa-table fa-3x"></i>.......</a>
                     </li>
                    
                                 </ul>

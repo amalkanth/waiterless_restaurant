@@ -1,5 +1,5 @@
 
-<?php
+<?php error_reporting(0);
 class User extends  CI_Controller{
 	public function userhome()
 	{

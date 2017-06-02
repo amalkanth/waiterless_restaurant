@@ -135,7 +135,30 @@ public function offerinsert($offerform)
       }
     
 }
+public function feedback()
+{
+	$query= $this->db->query("select * from tbl_feedback");
+       $results=array();
+        foreach($query->result() as $row)
+        {
+          $results[]=array('f_id'=>$row->feedback_id,'user_name'=>$row->user_name,'feedback'=>$row->feedback,'rating'=>$row->rating,'date'=>$row->date);
+        }
 
+       
+  			return $results;
+}
+public function custdetl()
+{
+	$query= $this->db->query("select * from tbl_user");
+       $results=array();
+        foreach($query->result() as $row)
+        {
+          $results[]=array('user_name'=>$row->user_name,'emailid'=>$row->emailid,'phno'=>$row->phno,'point'=>$row->point);
+        }
+
+       
+  			return $results;
+}
 
   } 
   	 

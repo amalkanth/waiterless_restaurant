@@ -48,7 +48,7 @@ else:
     </tbody>
 </table>
  
-<p><?php echo form_submit('', 'Update your Cart'); echo anchor('user/empty_cart', 'Empty Cart', 'class="empty"');?>  <a href="../user/confirmorder" class="btn btn-info ">CONFIRM ORDER</a> </p>
+<p><?php echo form_submit('', 'Update your Order'); echo anchor('user/empty_cart', 'cancel order', 'class="empty"');?>  <a href="../user/confirmorder" class="btn btn-info ">CONFIRM ORDER</a> </p>
 <p><small>To cancel an item set quantity  to zero</small></p>
 <?php 
 echo form_close(); 

@@ -24,13 +24,13 @@
 	<script type="text/javascript" language="javascript">
 	function loaddist(cat_id)
 	{
-		alert(cat_id);
+
 		var xmlhttp=new XMLHttpRequest();
 		xmlhttp.onreadystatechange=function()
 		{
 			if(xmlhttp.readyState==4)
 			{
-				alert("jj");
+				
 				document.getElementById("subcategory").innerHTML=xmlhttp.responseText;
 			}
 		}
@@ -41,13 +41,13 @@
 
 	function loadsubid(sub_id)
 	{
-		alert(sub_id);
+		
 		var xmlhttp=new XMLHttpRequest();
 		xmlhttp.onreadystatechange=function()
 		{
 			if(xmlhttp.readyState==4)
 			{
-				alert("jj");
+				
 				document.getElementById("item_id").innerHTML=xmlhttp.responseText;
 			}
 		}

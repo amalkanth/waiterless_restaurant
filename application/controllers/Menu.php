@@ -1,4 +1,4 @@
-<?php
+<?php error_reporting(0);
 class Menu extends  CI_Controller{
 	public function display(){
 	   $this->load->view('templates/adminheader');

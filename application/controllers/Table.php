@@ -1,7 +1,8 @@
-<?php
+<?php error_reporting(0);
 class Table extends CI_Controller{
 	public function settable()
-	{  $tableno=$_POST['tableno'];   
+	{  $tableno=4;
+		$tableno=$_POST['tableno'];   
         $_SESSION['tableno']=$tableno;
 		$_SESSION['date']=date("Y/m/d");
 	

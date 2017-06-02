@@ -231,14 +231,36 @@ public function offersetvalidation()
   {
 
     echo "success";
+    $this->load->view('templates/adminheader');
+	   $this->load->view('admin/adminhome');
+	   $this->load->view('templates/footer');
   }
   else {
 
     echo "failure.try again";
+     $data['name']=$this->Admin_model->getcategory();
+    $this->load->view('templates/adminheader');
+    $this->load->view('admin/offerview',$data);
+   $this->load->view('templates/footer');
   }
 }
 
-
+public function feedback()
+{
+	$ck=$this->Admin_model->feedback();
+	$data['fdbck']=$ck;
+	 $this->load->view('templates/adminheader');
+	$this->load->view('admin/feedback',$data);
+	   $this->load->view('templates/footer');
+}
+public function  custdetl()
+{
+	$ck=$this->Admin_model->custdetl();
+	$data['cust']=$ck;
+	 $this->load->view('templates/adminheader');
+	$this->load->view('admin/custdtl',$data);
+	   $this->load->view('templates/footer');
+}
  }
  
  

@@ -1,7 +1,7 @@
-<?php
+<?php error_reporting(0);
 class Login extends  CI_Controller{
 	public function index(){
-		$this->load->view('templates/header');
+		//$this->load->view('templates/header');
 		$this->load->view('login/index');
 		$this->load->view('templates/footer');
 	}
@@ -168,7 +168,13 @@ else {
 
 	}
 
-
+public function refresh()
+{
+	$this->load->view('templates/adminheader');
+		$this->load->view('admin/adminhome');
+		$this->load->view('templates/footer');
+	
+}
 public function confirm_order($id)
 	{
 		$qry=$this->Chef_model->confirm_order($id);	

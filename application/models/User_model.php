@@ -25,16 +25,17 @@ public function add_cart_item()
 {
 }
 function validate_add_cart_item(){
-     
-    $id = $this->input->post('product_id'); // Assign posted product_id to $id
+  
+    $id = $this->input->post('product_id'); echo $id;// Assign posted product_id to $id
     $qty = $this->input->post('quantity'); // Assign posted quantity to $cty
      $remarks = $this->input->post('remarks'); 
     $this->db->where('item_id', $id); // Select where id matches the posted id
     $query = $this->db->get('tbl_item'); // Select the products where a match is found and limit the query by 1
    $conn=mysqli_connect("localhost","root","","waiterless_restaurant");
-    $numr= mysqli_num_rows(mysqli_query($conn,"select * from tbl_item where item_id=32"));
+    $numr= mysqli_num_rows(mysqli_query($conn,"select * from tbl_item where item_id=$id"));
     // Check if a row has matched our product id
     //if($query->num_rows > 0){
+
     if($numr > 0){
     	echo "item";
     // We have a match!
@@ -138,7 +139,11 @@ $query=$this->db->query("select order_id from tbl_order where table_id='$tbl' an
        
 }
 public function retrieve_orders()
-{$user_id=$_SESSION['user_id'];
+{
+if(!$_SESSION['user_id'])
+	$user_id=1;
+	else 
+$user_id=$_SESSION['user_id'];
 	
 		$query = $this->db->query("
     SELECT tbl_order.order_id,tbl_order.order_status,tbl_order_items.item_id,tbl_order_items.item_name,tbl_order_items.qty,tbl_order_items.price
@@ -183,6 +188,7 @@ public function offervariable()
  
                                     foreach($query1->result() as $row1)
                                       {
+                                      	$row1->price=$row1->price-123;
                          $fans[]=array('item_id'=>$id,'item_name'=>$row1->item_name,'price'=>$row1->price,'path'=>$row1->path,'ofr'=>$ofr);
                                       }
                                    
@@ -203,7 +209,7 @@ public function offervariable()
                                              ORDER BY tbl_item.item_id;");
  
                                      foreach($query1->result() as $row1)
-                                       {
+                                       {$row1->price=$row1->price-171;
                           $fans[]=array('item_id'=>$id,'item_name'=>$row1->item_name,'price'=>$row1->price,'path'=>$row1->path,'ofr'=>$ofr);
                                        }
                                     
@@ -225,7 +231,7 @@ public function offervariable()
                                              ORDER BY tbl_item.item_id;");
  
                                      foreach($query1->result() as $row1)
-                                       {
+                                       {$row1->price=$row1->price-200;
                           $fans[]=array('item_id'=>$id,'item_name'=>$row1->item_name,'price'=>$row1->price,'path'=>$row1->path,'ofr'=>$ofr);
                                        }
                                     
@@ -247,7 +253,7 @@ public function offervariable()
                                              ORDER BY tbl_item.item_id;");
  
                                      foreach($query1->result() as $row1)
-                                       {
+                                       {$row1->price=$row1->price-100;
     $fans[]=array('item_id'=>$id,'item_name'=>$row1->item_name,'price'=>$row1->price,
                  'description'=>$row1->description,'path'=>$row1->path,'ofr'=>$ofr);
                                        }

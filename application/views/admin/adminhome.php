@@ -17,8 +17,8 @@
                     <i class="fa fa-envelope-o"></i>
                 </span>
                 <div class="text-box" >
-                    <p class="main-text">120 New</p>
-                    <p class="text-muted">Messages</p>
+                    <p class="main-text"><a href="../admin/additem"><h3></br></br></br></br></br>ADD NEW ITEM</h3> </a></p>
+                    <p class="text-muted">menu</p>
                 </div>
              </div>
 		     </div>
@@ -28,7 +28,7 @@
                     <i class="fa fa-bars"></i>
                 </span>
                 <div class="text-box" >
-                    <p class="main-text">30 Tasks</p>
+                    <p class="main-text"><a href="../admin/feedback"><h3></br></br></br></br></br>recent feedbacks</h3> </a></p>
                     <p class="text-muted">Remaining</p>
                 </div>
              </div>
@@ -39,8 +39,9 @@
                     <i class="fa fa-bell-o"></i>
                 </span>
                 <div class="text-box" >
-                    <p class="main-text">240 New</p>
-                    <p class="text-muted">Notifications</p>
+                    
+                    <p class="main-text"><a href="../admin/menu"><h3></br></br></br></br></br>view menu</h3> </a></p>
+                    <p class="text-muted">items</p>
                 </div>
              </div>
 		     </div>
@@ -50,8 +51,8 @@
                     <i class="fa fa-rocket"></i>
                 </span>
                 <div class="text-box" >
-                    <p class="main-text">3 Orders</p>
-                    <p class="text-muted">Pending</p>
+                    <p class="main-text"><a href="../admin/custdetl"><h3></br></br></br></br></br>registered customers</h3> </a></p>
+                    <p class="text-muted">points</p>
                 </div>
              </div>
 		     </div>

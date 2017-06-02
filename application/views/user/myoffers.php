@@ -237,7 +237,7 @@ $(document).ready(function(){
         <h3><?php echo $p['item_name']; ?></h3><?php $image=$p['path'];?>
        <img height="220" width="220" src="<?php echo base_url(); ?>image/menu/<?php echo $image; ?>.jpg" alt="" />
         <small>&#8377;<?php echo $p['price']; ?></small></br>
-        <small><?php echo $p['ofr']; ?></small>
+        <small></small>
         <?php echo form_open('user/add_cart_item'); ?>
             <fieldset>
                 <label>Quantity</label>
